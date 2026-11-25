@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"BGMsrw25_maoudamashi_cyber39",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":113.7488,
+  "exportDir":"",
+  "name":"BGMsrw25_maoudamashi_cyber39",
+  "parent":{
+    "name":"BGM",
+    "path":"folders/Sounds/BGM.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"BGMsrw25_maoudamashi_cyber39",
+  "volume":1.0,
+}

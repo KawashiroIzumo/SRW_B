@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"BGMsrw01_Apex_byfreePD",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":317.36664,
+  "exportDir":"",
+  "name":"BGMsrw01_Apex_byfreePD",
+  "parent":{
+    "name":"BGM",
+    "path":"folders/Sounds/BGM.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"BGMsrw01_Apex_byfreePD",
+  "volume":1.0,
+}

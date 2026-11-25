@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"timeline_check",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"timeline_check",
+  "parent":{
+    "name":"常用",
+    "path":"folders/Scripts/常用.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

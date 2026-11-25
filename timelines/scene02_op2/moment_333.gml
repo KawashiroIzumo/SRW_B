@@ -1,0 +1,46 @@
+/// @description 打架开始
+with(talk_scene)
+{
+    ///职业选手1
+    i=5
+    actor_enable[i]=true
+    actor_active[i]=true
+    actor_play[i]=0
+    actor_image_index[i]=7
+    actor_sprite[i]=robo33s00_rdash
+    actor_xs[i]=0.6
+    actor_ys[i]=0.6
+    i=4
+    actor_enable[i]=true
+    actor_active[i]=true
+    actor_play[i]=1
+    actor_sprite[i]=fx02_jitps
+    actor_x[i]=actor_x[5]
+    actor_y[i]=actor_y[5]
+    actor_xs[i]=0.6
+    actor_ys[i]=0.6
+    ///卡缪
+    i=11
+    actor_enable[i]=true
+    actor_active[i]=true
+    actor_play[i]=0
+    actor_image_index[i]=7
+    actor_sprite[i]=robo33s00_rdash
+    actor_xs[i]=0.6
+    actor_ys[i]=0.6
+    actor_mirror[i]=1
+    actor_speed[i]=2
+    i=10
+    actor_enable[i]=true
+    actor_active[i]=true
+    actor_play[i]=1
+    actor_sprite[i]=fx02_jitps
+    actor_x[i]=actor_x[11]
+    actor_y[i]=actor_y[11]
+    actor_xs[i]=0.6
+    actor_ys[i]=0.6
+    actor_disappear[i]=1
+    actor_speed[i]=2
+
+}
+

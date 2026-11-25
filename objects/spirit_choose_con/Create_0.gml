@@ -1,0 +1,24 @@
+wchoose=-1
+ondraw=false
+spr_ala=0
+mode=0
+cold=true
+page=0
+alarm[1]=1
+p_page=-1
+rid=0
+stand=false
+mrid=0
+mapid=0
+rteam=0
+pid=0
+special_choose=-1
+schoose=-1
+eflag=-1
+esid=-1
+for(i=0;i<10;i++)
+{
+    wep_can_use[i]=false
+}
+add_instance_deactive(true)
+

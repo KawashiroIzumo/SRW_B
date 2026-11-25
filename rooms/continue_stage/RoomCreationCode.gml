@@ -1,0 +1,6 @@
+init_room()
+ls_map=ds_map_create()
+ds_map_destroy(ls_map)
+//show_message("读取！")
+add_load_stage("quicksave\\imyourfather")
+//show_message("读取完毕！")

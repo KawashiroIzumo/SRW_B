@@ -1,0 +1,32 @@
+//我方人员入场
+with(talk_scene)
+{
+    i=2
+    actor_reset(i)
+    actor_useing(i)
+    actor_sprite[i]=thca00_reimu_move
+    actor_speed[i]=8
+    actor_x[i]=-300
+    i=3
+    actor_reset(i)
+    actor_useing(i)
+    actor_sprite[i]=plo00_wavebro_run
+    actor_speed[i]=8
+    actor_x[i]=-100
+    actor_y[i]+=64
+    i=4
+    actor_reset(i)
+    actor_useing(i)
+    actor_sprite[i]=thca06_youmu_run
+    actor_speed[i]=8
+    actor_x[i]=-400
+    actor_y[i]+=64
+    i=5
+    actor_reset(i)
+    actor_useing(i)
+    actor_sprite[i]=thca01_marisa_move
+    actor_speed[i]=8
+    actor_x[i]=-300
+    actor_y[i]+=128
+}
+

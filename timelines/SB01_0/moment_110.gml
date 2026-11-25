@@ -1,0 +1,43 @@
+/// @description 添加机体 创建敌对职业选手
+a=create_mrobo_kai(36,25,4,1,16,2)//夏亚
+if(a>=0)
+{
+    global.mrobo_pliot_c_name[a]="职业选手三倍速"
+    global.mrobo_mov[a]=18
+    while(global.pliot_lv[16]<12)
+    {
+        pliot_lvup(16)
+    }
+    mrobo_add_equip(a,2,7)
+    mrobo_refrish(a)
+}
+a=create_mrobo_kai(36,26,4,1,16,2)//R35
+if(a>=0)
+{
+    global.mrobo_pliot_c_name[a]="职业选手R35"
+    mrobo_add_equip(a,1,6)
+    mrobo_refrish(a)
+}
+a=create_mrobo_kai(36,27,4,1,16,2)//强尼子
+if(a>=0)
+{
+    global.mrobo_pliot_c_name[a]="职业选手强尼子"
+    mrobo_add_equip(a,0,1)
+    mrobo_refrish(a)
+}
+a=create_mrobo_kai(36,25,3,1,16,2)//白狼
+if(a>=0)
+{
+    global.mrobo_pliot_c_name[a]="职业选手白狼"
+    mrobo_add_equip(a,1,6)
+    mrobo_refrish(a)
+}
+a=create_mrobo_kai(37,25,2,1,16,2)//马修
+if(a>=0)
+{
+    global.mrobo_pliot_c_name[a]="职业选手马修"
+    mrobo_add_equip(a,0,1)
+    mrobo_refrish(a)
+}
+
+

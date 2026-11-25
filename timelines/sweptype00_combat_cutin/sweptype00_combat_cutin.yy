@@ -1,0 +1,15 @@
+{
+  "$GMTimeline":"",
+  "%Name":"sweptype00_combat_cutin",
+  "momentList":[
+    {"$GMMoment":"","%Name":"","evnt":{"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":20,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},"moment":20,"name":"","resourceType":"GMMoment","resourceVersion":"2.0",},
+    {"$GMMoment":"","%Name":"","evnt":{"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":140,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},"moment":140,"name":"","resourceType":"GMMoment","resourceVersion":"2.0",},
+  ],
+  "name":"sweptype00_combat_cutin",
+  "parent":{
+    "name":"通用武器",
+    "path":"folders/Timelines/武器/通用武器.yy",
+  },
+  "resourceType":"GMTimeline",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,26 @@
+mode=0
+cold=true
+miss=false
+dcold=true
+//0：加血
+//1：补给
+//2：加SP
+mrid=-1
+dmg=10
+avl_name=""
+ondrawing=false
+jd=0
+with(DND_player)
+{
+    cold=true
+    inchoose=true
+}
+alarm[1]=1
+xs_dig=true
+xs_fx=false
+xs_fx_ind=noone
+destroy_script=noone
+destroy_argument0=0
+destroy_argument1=0
+destroy_argument2=0
+flag_menu=true

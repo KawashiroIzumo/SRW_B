@@ -1,0 +1,20 @@
+global.bgm=BGMsrw02_Heroic_Adventure_byfreePD
+audio_play_sound(sound39_gundam_dash,1,0)
+audio_play_sound(sound42_laser,1,0)
+with(talk_scene)
+{  
+    for(i=0;i<=5;i++)
+    {
+        actor_reset(i)
+    }
+    scene_bak=BK42_fly
+    scene_mov=-6
+    i=0
+    actor_useing(i)
+    actor_mirror[i]=1
+    actor_sprite[i]=robo02s00_stand
+    i=56
+    actor_alpha[i]=1
+    actor_disappear[i]=0.02
+}
+

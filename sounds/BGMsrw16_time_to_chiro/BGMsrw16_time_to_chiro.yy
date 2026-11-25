@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"BGMsrw16_time_to_chiro",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":203.8982,
+  "exportDir":"",
+  "name":"BGMsrw16_time_to_chiro",
+  "parent":{
+    "name":"BGM",
+    "path":"folders/Sounds/BGM.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"BGMsrw16_time_to_chiro",
+  "volume":1.0,
+}

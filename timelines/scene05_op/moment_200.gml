@@ -1,0 +1,1 @@
+global.bgm=BGMsrw06_Baltic_Levity_byfreePD

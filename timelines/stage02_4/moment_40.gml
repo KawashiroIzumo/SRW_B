@@ -1,0 +1,29 @@
+/// @description 添加机体 妖梦、陆夫人 气力上升
+a=base_find_robo(32)//妖梦
+a=create_mrobo_base(a,15,20,0)
+if(a>=0)
+{
+   global.mrobo_pliot_ql[a]=120 
+}
+a=base_find_robo(9)//陆夫人
+a=create_mrobo_base(a,16,21,0)
+if(a>=0)
+{
+   global.mrobo_pliot_ql[a]=120 
+}
+a=mrobo_find_pliot(0)//波澜
+if(a>=0)
+{
+   global.mrobo_pliot_ql[a]=120 
+}
+a=mrobo_find_pliot(2)//灵梦
+if(a>=0)
+{
+   global.mrobo_pliot_ql[a]=120 
+}
+a=mrobo_find_pliot(3)//辽宁号
+if(a>=0)
+{
+   global.mrobo_pliot_ql[a]=120 
+}
+

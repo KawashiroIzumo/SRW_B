@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bks_set",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bks_set",
+  "parent":{
+    "name":"object物品特殊",
+    "path":"folders/Scripts/object物品特殊.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

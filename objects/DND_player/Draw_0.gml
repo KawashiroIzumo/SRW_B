@@ -1,0 +1,209 @@
+var dx,dy,vx,vy,vw,vh,dka,ax,ay,bx,by,bw,bh,bflag,cd_t,cd_tmax,ls_long;
+//绘制画面边界
+draw_set_alpha(1)
+draw_set_colour(c_dkgray)
+draw_rectangle(0,0,room_width,64,false)
+draw_rectangle(0,0,64,room_height,false)
+draw_rectangle(0,room_height,room_width,room_height-64,false)
+draw_rectangle(room_width,0,room_width-64,room_height,false)
+
+//绘制地块
+vx=64
+vw=64
+vy=64
+vh=64
+for(dy=0;dy<global.map_h[mapid];dy+=1)
+{
+    for(dx=0;dx<global.map_w[mapid];dx+=1)
+    {
+        dka=global.map_dtype[mapid,dy*100+dx]
+        ax=vx+dx*vw
+        ay=vy+dy*vh
+        draw_background(global.dtype_bk[dka],ax,ay)
+    }
+}
+//绘制叠加层
+ax=0
+ay=0
+if(background_exists(global.map_bak[mapid]))
+    draw_background(global.map_bak[mapid],ax,ay)
+//绘制网格
+vx=64
+vw=64
+vy=64
+vh=64
+draw_set_colour(c_blue)
+for(dx=0;dx<=global.map_w[mapid];dx+=1)
+{
+    draw_line(vx+dx*vw,vy,vx+dx*vw,room_height-vy);
+}
+for(dy=0;dy<=global.map_h[mapid];dy+=1)
+{
+    draw_line(vx,vy+dy*vh,room_width-vx,vy+dy*vh);
+}
+
+//绘制单位
+with(robo_drawer)
+{
+    vx=64
+    vw=64
+    vy=64
+    vh=64
+    flag=false
+    for(i=0;i<256;i++)
+    {
+        if(global.mrobo_id[i]>=0&&global.mrobo_onship[i]==false)
+        {
+            if(global.map_space[other.mapid])global.mrobo_fly[i]=false
+            dx=global.mrobo_x[i]
+            dy=global.mrobo_y[i]
+            dka=global.map_dtype[other.mapid,dy*100+dx]
+            ax=vx+dx*vw
+            ay=vy+dy*vh
+            spr=global.robo_icon[global.mrobo_id[i]]
+            ind=global.mrobo_team[i]
+            if(global.mrobo_E[i])
+            {
+                var a;
+                a=find_buff(i,15)
+                if(a>=0)
+                {
+                    global.mrobo_E[i]=false
+                    global.mrobo_buff[i,a]=-1
+                }
+                else 
+                    ind=3//单位已经行动的情况
+            }
+            if(global.mrobo_fly[i]==false)
+            {
+                draw_sprite(spr,ind,ax+32,ay+32)
+                if(other.inchoose&&other.onchoose==i)
+                {
+                    draw_set_blend_mode(bm_add)
+                    draw_sprite_ext(spr,ind,ax+32,ay+32,1.25,1.25,0,c_white,1)
+                    draw_set_blend_mode(bm_normal)
+                }
+            }
+            else
+            {
+                draw_sprite(robo_shadow,ind,ax+32,ay+32)
+                draw_sprite(spr,ind,ax+32,ay+18)
+                if(other.inchoose&&other.onchoose==i)
+                {
+                    draw_set_blend_mode(bm_add)
+                    draw_sprite_ext(spr,ind,ax+32,ay+18,1.25,1.25,0,c_white,1)
+                    draw_set_blend_mode(bm_normal)
+                }
+            }
+            if(other.cold==false&&mouse_in(ax+1,ay+1,ax+vw-1,ay+vh-1)&&other.turn_type==0)//选中单位的情况
+            {
+                if(other.inchoose==false)
+                {
+                    other.onchoose=i;
+                    flag=true
+                    if(mouse_check_button_released(mb_left))
+                    {
+                        other.b_page=0
+                        camera.follow=false
+                        other.inchoose=true
+						other.G_cold=1
+						//("G_cold=="+string(G_cold))
+						other.alarm[6]=2
+                    }
+                }
+                
+            }
+            draw_set_halign(fa_center)
+            draw_set_valign(fa_top)
+            ax=vx+dx*vw
+            ay=vy+dy*vh
+            if(global.mrobo_pliot_ql[i]>150)global.mrobo_pliot_ql[i]=150//气力上限
+            qtext=string(global.mrobo_pliot_ql[i])
+            draw_set_font(global.font_s)
+            draw_set_colour(c_black)
+            draw_text(ax+32,ay+8,string_hash_to_newline(qtext))
+            draw_set_colour(c_white)
+            draw_text(ax+32,ay+6,string_hash_to_newline(qtext))
+        }   
+    }
+    if(other.inchoose==false&&flag=false)
+    {
+        other.onchoose=-1;
+    }    
+}
+
+
+
+#region 绘制选中
+if(cold==false&&inchoose==false&&turn_type!=1)
+{
+	var cflag=false;
+    vx=64
+    vw=64
+    vy=64
+    vh=64
+    for(dy=0;dy<global.map_h[mapid];dy+=1)
+    {
+        for(dx=0;dx<global.map_w[mapid];dx+=1)
+        {
+            dka=global.map_dtype[mapid,dy*100+dx]
+            ax=vx+dx*vw
+            ay=vy+dy*vh
+            if(mouse_in(ax+1,ay+1,ax+vw-1,ay+vh-1))
+            {
+                draw_sprite(gui_dnd_choose,0,ax,ay)
+				#region 我方回合
+                if(turn_type==0)
+                {
+                    if(mouse_check_button_released(mb_left))
+                    {
+                        if(onchoose=-1)
+                        {
+							camera.follow=false
+                            instance_create(0,0,trun_end_con);
+							cflag=true
+							break;
+                        }
+                    }
+                }
+				#endregion
+            }
+        }
+		if(cflag)break;
+    }
+}
+#endregion
+
+#region 敌方回合的处理
+if(turn_type==1&&turn_e_now>=0)
+{
+    if(global.mrobo_team[turn_e_now]==1)
+    {
+        dx=global.mrobo_x[turn_e_now]
+        dy=global.mrobo_y[turn_e_now]
+        ax=vx+dx*vw
+        ay=vy+dy*vh
+        draw_set_colour(c_white)
+        draw_set_alpha(0.7)
+        draw_rectangle(ax,ay,ax+vw,ay+vh,false)
+        draw_set_alpha(1)
+        draw_rectangle(ax+1,ay+1,ax+vw-1,ay+vh-1,true)
+        draw_set_colour(0)
+        draw_rectangle(ax+2,ay+2,ax+vw-2,ay+vh-2,true)
+    }
+}
+#endregion
+//事件判断
+if(inchoose==false&&turn_type==0&&cold==false)
+{
+    if(event_queue_check()>0)
+    {
+        cold=true
+    }
+}
+//debug:释放镜头控制
+if(instance_exists(fw_drawer)==false&&instance_exists(empty_obj)==false&&cold==false&&instance_exists(trun_end_con)==false&&turn_type==0)
+{
+    with(camera)follow=true
+}
+

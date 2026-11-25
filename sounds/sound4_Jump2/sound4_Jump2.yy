@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sound4_Jump2",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":1,
+  "compression":1,
+  "compressionQuality":8,
+  "conversionMode":0,
+  "duration":0.306859,
+  "exportDir":"",
+  "name":"sound4_Jump2",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sound4_Jump2",
+  "volume":0.92,
+}

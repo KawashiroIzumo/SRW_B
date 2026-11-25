@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"BGMsrw07_gundam",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":155.06786,
+  "exportDir":"",
+  "name":"BGMsrw07_gundam",
+  "parent":{
+    "name":"BGM",
+    "path":"folders/Sounds/BGM.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"BGMsrw07_gundam",
+  "volume":1.0,
+}

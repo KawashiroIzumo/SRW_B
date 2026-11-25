@@ -1,0 +1,61 @@
+if(mode==1)
+{
+    var tmrid,thp,twepj,tstand;
+    tmrid=-1
+    twepj=-1
+    tstand=0
+    rid=global.mrobo_id[mrid]
+    thp=16777215
+    if(workout_can_atk(mrid,0))//移动后攻击
+    {
+        for(j=9;j>=0;j--)//从最高威力的武器开始数
+        {
+            if(global.robo_wep[rid,j]>=0)
+            {
+                wid=global.robo_wep[rid,j]
+                if(workout_can_atk_wep(mrid,tstand,wid))//当前最高威力的武器可以打到人时
+                {
+                    for(k=0;k<256;k++)
+                    {
+                        if(global.mrobo_team[k]==global.mrobo_team[mrid])continue
+                        else
+                        {
+                            if(workout_can_atk_wep_target(mrid,tstand,wid,k))
+                            {
+                                if(global.mrobo_hp[k]<thp)
+                                {
+                                    thp=global.mrobo_hp[k]
+                                    tmrid=k
+                                }
+                            }
+                        }
+                    }
+                }
+                if(tmrid>=0)//找到目标
+                {
+                    twepj=j
+                    break;
+                }
+            }
+        }
+    }
+    else
+    {
+        global.mrobo_E[mrid]=true
+        with(DND_player)alarm[1]=30
+    }
+    if(tmrid>=0&&twepj>=0)//经过一通操作之后找到了
+    {
+        a=instance_create(0,0,battle_qr)
+        a.mode=1
+        a.stand=tstand
+        //show_message("stand="+string(stand))
+        a.battle_dh=global.battle_dh
+        a.wid[1]=global.robo_wep[rid,twepj]
+        a.mrid[1]=mrid
+        a.mrid[0]=tmrid
+        a.battle_dh=global.drawing
+    }
+    instance_destroy()
+}
+

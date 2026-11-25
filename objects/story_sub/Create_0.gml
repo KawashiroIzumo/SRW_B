@@ -1,0 +1,3 @@
+qtext=""
+death=false
+

@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"BGMsrw13_shitu",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":60.60908,
+  "exportDir":"",
+  "name":"BGMsrw13_shitu",
+  "parent":{
+    "name":"BGM",
+    "path":"folders/Sounds/BGM.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"BGMsrw13_shitu",
+  "volume":1.0,
+}

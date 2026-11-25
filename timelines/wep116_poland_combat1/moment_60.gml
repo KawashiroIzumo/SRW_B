@@ -1,0 +1,1 @@
+audio_play_sound(sound30_crow1,1,0)

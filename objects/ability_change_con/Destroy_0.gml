@@ -1,0 +1,11 @@
+if(dcold==true&&instance_exists(empty_obj)==false)
+{
+    with(DND_player)
+    {
+        cold=false
+    }
+}
+if(script_exists(destroy_script))
+{
+	script_execute(destroy_script,destroy_argument0,destroy_argument1,destroy_argument2)
+}

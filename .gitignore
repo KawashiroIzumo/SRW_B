@@ -1,0 +1,22 @@
+# ===== 日志与临时文件 =====
+logs/
+debug.log
+*.log
+
+# ===== Python 工具缓存与打包产物 =====
+__pycache__/
+*.pyc
+tools/dist/
+
+# ===== 系统文件 =====
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ===== GameMaker 本地缓存/导出 =====
+.gm/
+*.win
+*.resource_order.bak
+
+# ===== 编辑器/IDE =====
+.idea/

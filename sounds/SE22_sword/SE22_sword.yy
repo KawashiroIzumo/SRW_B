@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"SE22_sword",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":1.232755,
+  "exportDir":"",
+  "name":"SE22_sword",
+  "parent":{
+    "name":"SE",
+    "path":"folders/Sounds/SE.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"SE22_sword",
+  "volume":1.0,
+}

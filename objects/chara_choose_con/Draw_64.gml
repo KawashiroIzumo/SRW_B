@@ -1,0 +1,74 @@
+if(ondraw)
+{
+    display_set_gui_size(1280,720)
+    if(0)a=1
+    else
+    {
+        var vx,vy,vw,vh,mx,my,i,j,k,l;
+        mx=device_mouse_x_to_gui(0)
+        my=device_mouse_y_to_gui(0)
+        draw_set_alpha(1)
+        draw_rectangle_colour(0,0,1280,720,0,0,192,0,0)
+        vx=64
+        vy=64
+        vw=544
+        vh=544
+        for(i=0;i<2;i++)
+        {
+            ah=384
+            colorb=make_colour_rgb(0,0,128)
+            colora=c_blue
+            if(mx>=vx&&mx<=vx+vw&&my>=vy&&my<=vy+vh&&cold=false&&colora!=c_gray)
+            {
+                colorb=make_colour_rgb(128,128,255)
+                colora=make_color_rgb(255,255,128)
+                if(mouse_check_button_released(mb_left))
+                {
+                    audio_play_sound(SE02_onepoint24,1,0)
+                    global.ls_variable[0]=i
+                    room_goto(storyroom)  
+                }
+            }
+            draw_kuang(vx,vy,vx+vw,vy+ah,colorb)
+            lsspr=plo00_wavebro_stand
+            if(i==1)lsspr=thca00_reimu_stand
+            draw_sprite_ext(lsspr,0,vx+vw/2,vy+ah/2,1-i*2,1,0,c_white,1)
+            draw_kuang(vx,vy+ah,vx+vw,vy+vh,colora)
+            qtext=global.pliot_name[i*2]+"#"+global.pliot_class[i*2]
+            if(i==0)qtext+="#以男主人公开始"
+            else qtext+="#以女主人公开始"
+            draw_set_font(global.font_m)
+            draw_set_halign(fa_center)
+            draw_set_valign(fa_middle)
+            draw_set_colour(0)
+            draw_text(vx+vw/2+2,vy+ah+(vh-ah)/2+2,string_hash_to_newline(qtext))
+            draw_set_colour(16777215)
+            draw_text(vx+vw/2,vy+ah+(vh-ah)/2,string_hash_to_newline(qtext))
+            vx+=vw+64
+        }
+        vx=64
+        vy+=vh+8
+        vw=256
+        vh=64
+        colora=c_blue
+        if(mx>=vx&&mx<=vx+vw&&my>=vy&&my<=vy+vh&&cold=false&&colora!=c_gray)
+        {
+            colora=make_color_rgb(255,255,128)
+            if(mouse_check_button_released(mb_left))
+            {
+                audio_play_sound(SE02_onepoint24,1,0)
+                room_goto(Tittle_room)
+            }
+        }
+        draw_kuang(vx,vy,vx+vw,vy+vh,colora)
+        qtext="返回标题画面"
+            draw_set_font(global.font_m)
+            draw_set_halign(fa_center)
+            draw_set_valign(fa_middle)
+            draw_set_colour(0)
+            draw_text(vx+vw/2+2,vy+vh/2+2,string_hash_to_newline(qtext))
+            draw_set_colour(16777215)
+            draw_text(vx+vw/2,vy+vh/2,string_hash_to_newline(qtext))
+    }
+}
+

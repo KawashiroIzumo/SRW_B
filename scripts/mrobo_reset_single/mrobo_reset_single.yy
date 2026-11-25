@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"mrobo_reset_single",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"mrobo_reset_single",
+  "parent":{
+    "name":"object物品特殊",
+    "path":"folders/Scripts/object物品特殊.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

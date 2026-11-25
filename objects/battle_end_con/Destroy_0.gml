@@ -1,0 +1,27 @@
+with(camera)follow=true
+with(DND_player)cold=false
+for(i=0;i<2;i++)
+{
+    for(j=0;j<40;j++)
+    {
+        if(mrid[i]>=0)
+        {
+            bid=global.mrobo_buff[mrid[i],j]
+            if(bid>=0)
+            {
+                if(global.buff_end[bid]==3)
+                {
+                    global.mrobo_buff[mrid[i],j]=-1
+                }
+            }
+        }
+    }
+}
+if(mode==1)
+{
+    with(DND_player)alarm[1]=30
+    with(camera)follow=false
+    global.mrobo_E[mrid[1]]=true
+    with(DND_player)cold=true
+}
+

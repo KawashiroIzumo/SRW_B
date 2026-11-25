@@ -1,0 +1,41 @@
+ondrawing=true
+jd=2
+if(mode==0)
+{
+    if(dmg>global.mrobo_hpm[mrid]-global.mrobo_hp[mrid])dmg=global.mrobo_hpm[mrid]-global.mrobo_hp[mrid]
+    global.mrobo_hp[mrid]+=dmg
+    if(global.mrobo_hp[mrid]<=0)
+    {
+        global.mrobo_hp[mrid]=0
+    }
+    if(global.mrobo_hp[mrid]>global.mrobo_hpm[mrid])
+    {
+        global.mrobo_hp[mrid]=global.mrobo_hpm[mrid]
+    }
+}
+else if(mode==1)
+{
+    global.mrobo_en[mrid]+=dmg
+    if(global.mrobo_en[mrid]<=0)
+    {
+        global.mrobo_en[mrid]=0
+    }
+    if(global.mrobo_en[mrid]>global.mrobo_enm[mrid])
+    {
+        global.mrobo_en[mrid]=global.mrobo_enm[mrid]
+    }
+}
+else if(mode==2)
+{
+    global.mrobo_pliot_sp[mrid]+=dmg
+    if(global.mrobo_pliot_sp[mrid]<=0)
+    {
+        global.mrobo_pliot_sp[mrid]=0
+    }
+    if(global.mrobo_pliot_sp[mrid]>global.pliot_sp[global.mrobo_pliot[mrid]])
+    {
+        global.mrobo_pliot_sp[mrid]=global.pliot_sp[global.mrobo_pliot[mrid]]
+    }
+}
+alarm[2]=120
+

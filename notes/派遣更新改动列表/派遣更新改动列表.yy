@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"v2",
+  "%Name":"派遣更新改动列表",
+  "name":"派遣更新改动列表",
+  "parent":{
+    "name":"Notes",
+    "path":"folders/Notes.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sound31_crow2",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":0.370333,
+  "exportDir":"",
+  "name":"sound31_crow2",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sound31_crow2",
+  "volume":1.0,
+}

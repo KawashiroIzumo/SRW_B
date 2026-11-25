@@ -1,0 +1,94 @@
+var dx,dy,vx,vy,vw,vh,dka,ax,ay,bx,by,bw,bh,bflag;
+if(drawing)
+{
+    mov_alarm+=1
+    if(mov_alarm>=64)mov_alarm=0
+    vx=64
+    vw=64
+    vy=64
+    vh=64
+	if(target_draw_mode==1)
+	{
+		for(dy=0;dy<global.map_h[mapid];dy+=1)
+	    {
+	        for(dx=0;dx<global.map_w[mapid];dx+=1)
+	        {
+	            ax=vx+dx*vw
+	            ay=vy+dy*vh
+	            if(bfs_map_can_atk[dx,dy])
+	            {
+	                draw_set_alpha(0.5)
+	                colora=make_colour_rgb(255,0,124+abs(128-mov_alarm*4))
+	                draw_set_colour(colora);
+	                draw_rectangle(ax+1,ay+1,ax+vw-1,ay+vh-1,false)
+	                draw_set_alpha(1)
+	                draw_set_colour(c_red)
+	            }
+	        }
+	    }
+	}
+    for(i=0;i<256;i++)
+    {
+        if(mrobo_is_target[i])    
+        {
+            dx=global.mrobo_x[i]
+            dy=global.mrobo_y[i]
+            ax=vx+dx*vw
+            ay=vy+dy*vh
+                draw_set_alpha(0.5)
+                colora=make_colour_rgb(255,0,124+abs(128-mov_alarm*4))
+                draw_set_colour(colora);
+                draw_rectangle(ax+1,ay+1,ax+vw-1,ay+vh-1,false)
+                draw_set_alpha(1)
+                draw_set_colour(c_red)
+        }
+    }
+    //绘制选中
+    if(instance_exists(battle_qr)==false)
+    {
+        vx=64
+        vw=64
+        vy=64
+        vh=64
+        for(dy=0;dy<global.map_h[mapid];dy+=1)
+        {
+            for(dx=0;dx<global.map_w[mapid];dx+=1)
+            {
+                dka=global.map_dtype[mapid,dy*100+dx]
+                ax=vx+dx*vw
+                ay=vy+dy*vh
+                if(mouse_in(ax+1,ay+1,ax+vw-1,ay+vh-1))
+                {
+                    //draw_sprite(gui_dnd_choose,0,ax,ay)
+                    if(mouse_check_button_released(mb_left))
+                    {
+                        for(i=0;i<256;i++)
+                        {
+                            if(mrobo_is_target[i]==false)continue;
+                            else if(global.mrobo_x[i]==dx&&global.mrobo_y[i]==dy)
+                            {
+                                target_choose=i
+                                instance_destroy()
+                                break;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    //
+    if(mouse_check_button_released(mb_right)&&drawing)
+    {
+        __view_set( e__VW.XView, 0, svx )
+        __view_set( e__VW.YView, 0, svy )
+        camera.follow=false
+		if(source>=0)
+		{
+			view_do_center_puz(0,global.mrobo_x[source],global.mrobo_y[source])
+		}
+        instance_destroy()
+    }
+}
+

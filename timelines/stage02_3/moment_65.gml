@@ -1,0 +1,3 @@
+/// @description sound
+audio_play_sound(sound144_gunpower00,1,0)
+

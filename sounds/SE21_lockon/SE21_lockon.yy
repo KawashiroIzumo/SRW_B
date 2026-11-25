@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"SE21_lockon",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.997653,
+  "exportDir":"",
+  "name":"SE21_lockon",
+  "parent":{
+    "name":"SE",
+    "path":"folders/Sounds/SE.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"SE21_lockon",
+  "volume":1.0,
+}

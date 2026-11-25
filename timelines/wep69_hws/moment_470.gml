@@ -1,0 +1,5 @@
+/// @description 动画终点
+var i;
+i=actors_now
+actors_image_speed[7]=0
+

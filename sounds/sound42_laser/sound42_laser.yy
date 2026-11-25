@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sound42_laser",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":2.512755,
+  "exportDir":"",
+  "name":"sound42_laser",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sound42_laser",
+  "volume":1.0,
+}

@@ -1,0 +1,19 @@
+mode=0
+mrid[0]=-1
+mrid[1]=-1
+exp_blv=1
+lvup=false
+money_blv=1
+cold=true
+exp_get=0
+money_get=0
+lv_prim=1
+drawing=false
+for(i=0;i<40;i++)
+{
+    equip_get[i]=-1
+}
+flag_equip_get=false
+alarm[1]=1
+with(DND_player)cold=true
+

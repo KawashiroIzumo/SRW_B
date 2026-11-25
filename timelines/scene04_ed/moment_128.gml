@@ -1,0 +1,1 @@
+audio_play_sound(SE28_footstep02,1,0)

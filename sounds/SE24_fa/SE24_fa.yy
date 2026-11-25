@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"SE24_fa",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.418333,
+  "exportDir":"",
+  "name":"SE24_fa",
+  "parent":{
+    "name":"SE",
+    "path":"folders/Sounds/SE.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"SE24_fa",
+  "volume":1.0,
+}

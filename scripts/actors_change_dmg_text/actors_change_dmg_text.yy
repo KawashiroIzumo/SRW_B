@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"actors_change_dmg_text",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"actors_change_dmg_text",
+  "parent":{
+    "name":"object物品特殊",
+    "path":"folders/Scripts/object物品特殊.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,137 @@
+var dx,dy,vx,vy,vw,vh,dka,ax,ay,bx,by,bw,bh,bflag;
+if(drawing)
+{
+    if(global.wep_map[wid]&&(global.wep_map_type[wid]==1||global.wep_map_type[wid]==2))
+    {
+        //draw_line_width_colour(64+32+global.mrobo_x[mrid]*64,64+32+global.mrobo_y[mrid]*64,mouse_x,mouse_y,5,c_red,c_red)
+        amap_dre=(point_direction(64+32+global.mrobo_x[mrid]*64,64+32+global.mrobo_y[mrid]*64,mouse_x,mouse_y)+360) mod 360
+        if(amap_dre<45)amap_dre=0
+        else if(amap_dre<135)amap_dre=90
+        else if(amap_dre<225)amap_dre=180
+        else if(amap_dre<315)amap_dre=270
+        else amap_dre=0
+        if(amap_dre!=map_dre)
+        {
+            map_dre= amap_dre
+            alarm[1]=1
+        }
+    }
+    mov_alarm+=1
+    
+    if(mov_alarm>=64)mov_alarm=0
+    vx=64
+    vw=64
+    vy=64
+    vh=64
+    for(dy=0;dy<global.map_h[mapid];dy+=1)
+    {
+        for(dx=0;dx<global.map_w[mapid];dx+=1)
+        {
+            ax=vx+dx*vw
+            ay=vy+dy*vh
+            if(bfs_map_can_atk[dx,dy])
+            {
+                draw_set_alpha(0.5)
+                colora=make_colour_rgb(255,0,124+abs(128-mov_alarm*4))
+                draw_set_colour(colora);
+                draw_rectangle(ax+1,ay+1,ax+vw-1,ay+vh-1,false)
+                draw_set_alpha(1)
+                draw_set_colour(c_red)
+            }
+        }
+    }
+    //绘制选中
+    if(instance_exists(battle_qr)==false)
+    {
+        vx=64
+        vw=64
+        vy=64
+        vh=64
+        for(dy=0;dy<global.map_h[mapid];dy+=1)
+        {
+            for(dx=0;dx<global.map_w[mapid];dx+=1)
+            {
+                dka=global.map_dtype[mapid,dy*100+dx]
+                ax=vx+dx*vw
+                ay=vy+dy*vh
+                if(mouse_in(ax+1,ay+1,ax+vw-1,ay+vh-1)&&bfs_map_can_atk[dx,dy])
+                {
+                    //draw_sprite(gui_dnd_choose,0,ax,ay)
+                    if(mouse_check_button_released(mb_left))
+                    {
+                        camera.follow=false
+                        for(i=0;i<256;i++)
+                        {
+                            if
+                            (
+                                (
+                                    global.mrobo_x[i]==dx
+                                    &&global.mrobo_y[i]==dy
+                                    &&global.mrobo_team[i]!=global.mrobo_team[mrid]
+                                    ||global.wep_map[wid]
+                                )
+                            )
+                            {
+                                if(!global.wep_map[wid])
+                                {
+                                    a=instance_create(0,0,battle_qr)
+                                    a.mode=0
+                                    a.stand=stand
+                                    //show_message("stand="+string(stand))
+                                    a.battle_dh=global.battle_dh
+                                    a.wid[0]=wid
+                                    a.mrid[0]=mrid
+                                    a.mrid[1]=i
+                                    drawing=false
+                                    a.battle_dh=global.drawing
+                                }
+                                else
+                                {
+									global.bgm=global.robo_BGM[global.mrobo_id[mrid]]
+									global.mrobo_en[mrid]-=global.wep_en[wid]
+									if(global.wep_bullet[wid]>0)
+									{
+										var k;
+										for(k=0;k<20;k++)
+										{
+											if(global.mrobo_wep[k]==wid)
+											{
+												global.mrobo_wep_bullet[k]--
+												break
+											}
+										}
+									}
+                                    a=instance_create(0,0,empty_obj)
+                                    {
+                                        a.wid=wid
+                                        a.mrid=mrid
+                                        a.map_dre=map_dre
+                                        a.timeline_index=global.wep_timeline[wid]
+                                        a.timeline_position=-1
+                                        a.timeline_running=true
+                                    }
+                                    with(DND_player)
+                                    {
+                                        cold=true
+                                        inchoose=false
+                                    }
+                                    instance_destroy()
+                                }
+                                i=65535//结束循环
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    //
+    if(mouse_check_button_released(mb_right)&&drawing)
+    {
+        view_do_center_puz(0,global.mrobo_x[mrid],global.mrobo_y[mrid])
+        camera.follow=false
+        instance_destroy()
+    }
+}
+

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"wepscript",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"wepscript",
+  "parent":{
+    "name":"武器的通用代码",
+    "path":"folders/Timelines/武器/武器的通用代码.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

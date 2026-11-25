@@ -1,0 +1,10 @@
+///堇子对话内容
+qname="宇佐见堇子"
+qtext=@"我帮你们搜集了一些关于铁十字的
+资料，还有，上面的调令要后天才能到，
+我现在去运作一下，看看能不能提前一点，
+这样周锦华的命令就有了周转的余地了。
+"
+qhead=thh28_usami_sumireko
+a=create_dhk(qname,qtext,qhead)
+a.eff=1

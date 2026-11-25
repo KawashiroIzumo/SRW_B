@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sound29_flycin",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":1.990306,
+  "exportDir":"",
+  "name":"sound29_flycin",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sound29_flycin",
+  "volume":1.0,
+}

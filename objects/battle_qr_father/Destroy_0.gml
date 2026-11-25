@@ -1,0 +1,110 @@
+for(i=0;i<384;i++)
+{
+	with(actors_object[i])instance_destroy()
+}
+with(battle_bak_play)
+{
+	instance_destroy()
+}
+if(flag_quxiao==false)
+{
+    for(i=0;i<2;i++)
+    {
+        if(wid[i]>=0)
+        {
+            for(j=0;j<40;j++)
+            {
+                bid=global.mrobo_buff[mrid[i],j]
+                if(bid>=0)
+                {
+                    if(global.buff_end[bid]==2)
+                    {
+                        global.mrobo_buff[mrid[i],j]=-1
+                    }
+                }
+            }
+        }
+        a=find_buff(mrid[i],5)//检测到必闪
+        if(a>=0&&guand[i]==false)//若不属于用特殊能力完全化解对方攻击的场合
+        {
+            if((mode==i&&upside_down==!i)||(mode==!i&&upside_down=i))//己方回合内敌方先制攻击的情况，和敌方回合我方未先制攻击的情况
+            {
+                global.mrobo_buff[mrid[i],a]=-1//直接去除必闪
+            }
+            else
+            {
+                if(mrid[!i]!=deathmrid)global.mrobo_buff[mrid[i],a]=-1//否则若是未一击击败敌人则去除必闪（因为这样敌人才会还击
+            }
+        }
+    }
+    if(mode==0)i=0
+    else i=1
+    a=find_buff(mrid[i],8)
+    if(a>=0&&stand==false)global.mrobo_buff[mrid[i],a]=-1
+    with(DND_player)
+    {
+        moved=false
+    }
+    if(mrid[0]==deathmrid)
+    {
+        if(global.robo_fl[global.mrobo_id[mrid[0]],0]<0)
+        {
+            a=instance_create(0,0,flagobj_deadrobot)
+            //show_message("创造了一个旗标")
+            a.mrobo_team=0
+            a.mrobo_id=global.mrobo_id[mrid[0]]
+            a.mrobo_x=global.mrobo_x[mrid[0]]
+            a.mrobo_y=global.mrobo_y[mrid[0]]
+            a.mrobo_pliot=global.mrobo_pliot[mrid[0]]
+            a.mrobo_pliot_c_name=global.mrobo_pliot_c_name[mrid[0]]
+            mrobo_reset_single(deathmrid)
+        }
+        else
+        {
+            var trid;
+            trid=global.robo_fl[global.mrobo_id[mrid[0]],0]
+            audio_play_sound(sound146_transforming,1,0)
+            mrobo_change(mrid,trid)
+            mrobo_refrish(mrid[0])
+            if(global.robo_place_go[trid,0])global.mrobo_fly[mrid[0]]=true
+        }
+        if(mode==1)
+        {
+            global.mrobo_E[mrid[i]]=true
+            with(DND_player)alarm[1]=30
+        }
+    }
+    else if((mode==1&&wid[0]<0)==false)
+    {
+		if(mode!=2)
+		{
+	        a=instance_create(0,0,battle_end_con)
+	        a.mode=mode
+	        a.exp_blv=1
+	        a.money_blv=1
+	        a.mrid[0]=mrid[0]
+	        a.mrid[1]=mrid[1]
+		}
+    }
+    else
+    {
+        if(mode==1)
+        {
+            global.mrobo_E[mrid[i]]=true
+            with(DND_player)alarm[1]=30
+        }
+    }
+    if(deathmrid>=0)
+    {
+        if(timeline_exists(global.mrobo_death_jq[deathmrid]))
+        {
+            event_queue_add(global.mrobo_death_jq[deathmrid])
+        }
+    }
+}
+if(surface_exists(battleground))
+{
+    surface_free(battleground)
+}
+room_speed=60
+flag_menu=true

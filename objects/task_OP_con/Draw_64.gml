@@ -1,0 +1,79 @@
+var vx,vy,vw,vh;
+if(jd==0)
+{
+    vx=0
+    vy=0
+    draw_background(GUI_taskOP_bk,vx,vy)
+    vx=0
+    vy=-480+8*alarm[0]
+    draw_background(GUI_taskOP_top0,vx,vy)
+    vx=0
+    vy=480-8*alarm[0]
+    draw_background(GUI_taskOP_top1,vx,vy)
+}
+if(jd==1)
+{
+    vx=0
+    vy=0
+    draw_background(GUI_taskOP_bk,vx,vy)
+    vx=640
+    vy=360
+    draw_set_halign(fa_center)
+    draw_set_font(global.font_tittle)
+    draw_set_valign(fa_middle)
+    draw_set_colour(make_colour_rgb(255,127+128*alarm[0]/30,255*alarm[0]/30))
+    vw=1-alarm[0]/30
+    draw_text_transformed(vx,vy,string_hash_to_newline(global.task_name),vw,vw,0);
+}
+if(jd==2)
+{
+    vx=0
+    vy=0
+    draw_background(GUI_taskOP_bk,vx,vy)
+    vx=640
+    vy=360
+    draw_set_halign(fa_center)
+    draw_set_font(global.font_tittle)
+    draw_set_valign(fa_middle)
+    draw_set_colour(make_colour_rgb(255,255-128*alarm[0]/30,255-255*alarm[0]/30))
+    draw_text(vx,vy,string_hash_to_newline(global.task_name))
+}
+if(jd==3)
+{
+    vx=0
+    vy=0
+    draw_background(GUI_taskOP_bk,vx,vy)
+    vx=640
+    vy=360
+    draw_set_halign(fa_center)
+    draw_set_font(global.font_tittle)
+    draw_set_valign(fa_middle)
+    draw_set_colour(make_colour_rgb(255,127,0))
+    draw_text(vx,vy,string_hash_to_newline(global.task_name))
+}
+if(jd==4)
+{
+    
+    vx=0
+    vy=0
+    draw_background(GUI_taskOP_bk,vx,vy)
+    vx=640
+    vy=360
+    draw_set_halign(fa_center)
+    draw_set_font(global.font_tittle)
+    draw_set_valign(fa_middle)
+    draw_set_colour(make_colour_rgb(255,127,0))
+    draw_text(vx,vy,string_hash_to_newline(global.task_name))
+    draw_set_alpha(1-alarm[0]/30)
+    draw_set_colour(0)
+    draw_rectangle(0,0,1280,720,0)
+    draw_set_alpha(1)
+}
+if(jd==5)
+{
+    draw_set_alpha(alarm[0]/30)
+    draw_set_colour(0)
+    draw_rectangle(0,0,1280,720,0)
+    draw_set_alpha(1)
+}
+

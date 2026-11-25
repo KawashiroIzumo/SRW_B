@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"SE11_tractor",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":1.598469,
+  "exportDir":"",
+  "name":"SE11_tractor",
+  "parent":{
+    "name":"SE",
+    "path":"folders/Sounds/SE.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"SE11_tractor",
+  "volume":1.0,
+}

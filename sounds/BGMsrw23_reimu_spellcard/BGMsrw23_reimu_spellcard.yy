@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"BGMsrw23_reimu_spellcard",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":2,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":103.9874,
+  "exportDir":"",
+  "name":"BGMsrw23_reimu_spellcard",
+  "parent":{
+    "name":"BGM",
+    "path":"folders/Sounds/BGM.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"BGMsrw23_reimu_spellcard",
+  "volume":1.0,
+}

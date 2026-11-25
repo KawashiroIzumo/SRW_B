@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"ME01_jingle06",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":3.061292,
+  "exportDir":"",
+  "name":"ME01_jingle06",
+  "parent":{
+    "name":"ME",
+    "path":"folders/Sounds/ME.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"ME01_jingle06",
+  "volume":1.0,
+}

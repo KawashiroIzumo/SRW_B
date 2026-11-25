@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"wepseq_script_useful",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"wepseq_script_useful",
+  "parent":{
+    "name":"Sequences",
+    "path":"folders/Sequences.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

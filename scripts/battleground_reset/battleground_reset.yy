@@ -1,0 +1,16 @@
+{
+  "$GMScript":"v1",
+  "%Name":"battleground_reset",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"battleground_reset",
+  "parent":{
+    "name":"object物品特殊",
+    "path":"folders/Scripts/object物品特殊.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+  "tags":[
+    "reset",
+  ],
+}

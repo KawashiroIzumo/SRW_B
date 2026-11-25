@@ -1,0 +1,1 @@
+audio_play_sound(SE23_rua,1,0)

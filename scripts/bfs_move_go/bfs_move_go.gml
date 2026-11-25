@@ -1,0 +1,81 @@
+/// @description bfs_move_go(mrid)
+/// @param mrid
+function bfs_move_go(argument0) {
+	var sx,sy,sm,sa,sposition,mrid,sdtype;
+	//申明广搜队列
+	sx=bfs_queue_x[bfs_queue_top]
+	sy=bfs_queue_y[bfs_queue_top]
+	sm=bfs_queue_mov[bfs_queue_top]
+	mrid=argument0
+	if(sx>0)//向左移动的情况，不处于左方边境的情况下
+	{
+	    sdtype=global.map_dtype[mapid,(sy)*100+(sx-1)]//读取地图格子类型
+	    sa=workout_sa(mapid,sdtype,mrid)//获取移动力消耗值
+	    if(sm>=sa&&bfs_map_trap[sx-1,sy]!=1)
+	    {
+	        if(bfs_map_can_movyl[sx-1,sy]<sm-sa)//在残余移动力够用的情况下
+	        {
+	            bfs_queue_bottom++//将新状态加入广搜队列
+	            bfs_queue_x[bfs_queue_bottom]=sx-1
+	            bfs_queue_y[bfs_queue_bottom]=sy
+	            bfs_queue_mov[bfs_queue_bottom]=sm-sa
+	            bfs_map_can_movyl[sx-1,sy]=sm-sa
+	            bfs_map_can_move[sx-1,sy]=true
+	        }
+	    }
+	}
+	if(sy>0)//向上移动的情况，不处于上方边境的情况下
+	{ 
+	    sdtype=global.map_dtype[mapid,(sy-1)*100+(sx)]//读取地图格子类型
+	    sa=workout_sa(mapid,sdtype,mrid)//获取移动力消耗值
+	    if(sm>=sa&&bfs_map_trap[sx,sy-1]!=1)
+	    {
+	        if(bfs_map_can_movyl[sx,sy-1]<sm-sa)//在残余移动力够用的情况下
+	        {
+	            bfs_queue_bottom++
+	            bfs_queue_x[bfs_queue_bottom]=sx
+	            bfs_queue_y[bfs_queue_bottom]=sy-1
+	            bfs_queue_mov[bfs_queue_bottom]=sm-sa
+	            bfs_map_can_movyl[sx,sy-1]=sm-sa
+	            bfs_map_can_move[sx,sy-1]=true
+	        }
+	    }
+	}
+	if(sx<global.map_w[mapid])
+	{
+		sdtype=global.map_dtype[mapid,(sy)*100+(sx+1)]
+	    sa=workout_sa(mapid,sdtype,mrid)
+	    if(sm>=sa&&bfs_map_trap[sx+1,sy]!=1)
+	    {
+	        if(bfs_map_can_movyl[sx+1,sy]<sm-sa)
+	        {
+	            bfs_queue_bottom++
+	            bfs_queue_x[bfs_queue_bottom]=sx+1
+	            bfs_queue_y[bfs_queue_bottom]=sy
+	            bfs_queue_mov[bfs_queue_bottom]=sm-sa
+	            bfs_map_can_movyl[sx+1,sy]=sm-sa
+	            bfs_map_can_move[sx+1,sy]=true
+	        }
+	    }
+	}
+	if(sy<global.map_h[mapid])
+	{
+	    sdtype=global.map_dtype[mapid,(sy+1)*100+(sx)]
+	    sa=workout_sa(mapid,sdtype,mrid)
+	    if(sm>=sa&&bfs_map_trap[sx,sy+1]!=1)
+	    {
+	        if(bfs_map_can_movyl[sx,sy+1]<sm-sa)
+	        {
+	            bfs_queue_bottom++
+	            bfs_queue_x[bfs_queue_bottom]=sx
+	            bfs_queue_y[bfs_queue_bottom]=sy+1
+	            bfs_queue_mov[bfs_queue_bottom]=sm-sa
+	            bfs_map_can_movyl[sx,sy+1]=sm-sa
+	            bfs_map_can_move[sx,sy+1]=true
+	        }
+	    }
+	}
+
+
+
+}

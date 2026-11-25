@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"SE00_water06",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":2.120917,
+  "exportDir":"",
+  "name":"SE00_water06",
+  "parent":{
+    "name":"SE",
+    "path":"folders/Sounds/SE.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"SE00_water06",
+  "volume":1.0,
+}

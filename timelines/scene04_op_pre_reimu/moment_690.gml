@@ -1,0 +1,1 @@
+global.bgm=BGMsrw27_maoudamashii_6_dangeon22

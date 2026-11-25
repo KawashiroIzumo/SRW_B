@@ -1,0 +1,21 @@
+cold=true
+ondraw=false
+jt_image=0
+targetb=0
+ls_cost=0
+alarm[0]=1
+for(i=0;i<6;i+=1)
+{
+    base_ls_kai[i]=0
+}
+page=0
+button_text[0,0]="游击士"
+button_text[1,0]="守护者"
+button_text[2,0]="小混混"
+button_text[3,0]="狙击手"
+button_text[4,0]="辅助兵"
+button_text[5,0]="资本家"
+button_text[6,0]="钢之魂"
+button_text[7,0]="消耗品"
+button_num=8
+

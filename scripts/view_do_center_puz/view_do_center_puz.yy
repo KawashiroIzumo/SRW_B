@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"view_do_center_puz",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"view_do_center_puz",
+  "parent":{
+    "name":"常用",
+    "path":"folders/Scripts/常用.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

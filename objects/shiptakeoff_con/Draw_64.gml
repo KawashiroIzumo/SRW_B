@@ -1,0 +1,126 @@
+if(mrid<0)instance_destroy()
+rid=global.mrobo_id[mrid]
+var colorb,colora,vx,vy,vw,vh,qtext,colora,mx,my,trid;
+mx=device_mouse_x_to_gui(0)
+my=device_mouse_y_to_gui(0)
+display_set_gui_size(1280,720)
+vx=384
+vy=16
+vw=64
+vh=32
+for(i=0;i<4;i++)
+{
+    colora=make_colour_rgb(0,128,128)
+    if(cold||shipage==i)colora=c_gray
+    if(point_in(vx,vy,vx+vw,vy+vh,mx,my)&&colora!=c_gray)
+    {
+        colora=make_colour_rgb(0,192,192)
+        if(mouse_check_button(mb_left))
+        {
+            colora=make_colour_rgb(255,192,192)
+        }
+        if(mouse_check_button_released(mb_left))
+        {
+            shipage=i
+        }
+    }
+    draw_kuang(vx,vy,vx+vw,vy+vh,colora)
+    draw_set_font(global.font_m)
+    draw_set_halign(fa_center)
+    draw_set_valign(fa_middle)
+    draw_set_colour(0)
+    draw_text(vx+vw/2,vy+vh/2+2,string_hash_to_newline(string(i+1)))
+    draw_set_colour(c_white)
+    draw_text(vx+vw/2,vy+vh/2,string_hash_to_newline(string(i+1)))
+    vx+=vw+8
+}
+vx=384
+vy=48
+vw=512
+vh=656
+draw_kuang(vx,vy,vx+vw,vy+vh,6)
+vy+=16
+vx+=16
+vw-=32
+vh=64
+for(i=shipage*10;i<shipage*10+10;i++)
+{
+    var vflag=false;
+    tmrid=global.mrobo_base[mrid,i]
+    if(tmrid<0)vflag=true
+    if(!vflag)
+    {
+        trid=global.mrobo_id[tmrid]
+        if(trid<0)vflag=true
+    }
+    
+    if(vflag)
+    {
+        draw_kuang(vx,vy,vx+64,vy+vh,0)
+        draw_kuang(vx+72,vy,vx+vw,vy+vh,0)
+        qtext="机库空位"
+        draw_set_halign(fa_left)
+        draw_set_valign(fa_middle)
+        draw_set_colour(0)
+        draw_text(vx+80+2,vy+vh/2+2,string_hash_to_newline(qtext))
+        draw_set_colour(16777215)
+        draw_text(vx+80,vy+vh/2,string_hash_to_newline(qtext))
+    }
+    else
+    {
+        colora=make_colour_rgb(0,128,128)
+        if(cold)colora=c_gray
+        if(global.mrobo_E[tmrid])colora=c_gray
+        if(point_in(vx,vy,vx+vw,vy+vh,mx,my)&&colora!=c_gray)
+        {
+            colora=make_colour_rgb(0,192,192)
+            if(mouse_check_button(mb_left))
+            {
+                colora=make_colour_rgb(255,192,192)
+            }
+            if(mouse_check_button_released(mb_left))
+            {
+                global.mrobo_x[tmrid]=global.mrobo_x[mrid]
+                global.mrobo_y[tmrid]=global.mrobo_y[mrid]
+                global.mrobo_onship[tmrid]=false
+                global.mrobo_base[mrid,i]=-1
+                a=instance_create(0,0,moving_drawer)
+                a.mode=2
+                a.m2cas=mrid
+                a.mrid=tmrid
+                a.mapid=DND_player.mapid
+                a.svx=__view_get( e__VW.XView, 0 )
+                a.svy=__view_get( e__VW.YView, 0 )
+                camera.follow=true
+                instance_destroy()
+                with(DND_player)
+                {
+                    onchoose=other.tmrid
+                    inchoose=true
+                    moved=false
+                    cold=false
+                }
+            }
+        }
+        draw_kuang(vx,vy,vx+64,vy+vh,colora)
+        draw_kuang(vx+72,vy,vx+vw,vy+vh,colora)
+        if(global.mrobo_E[tmrid]) draw_sprite(global.robo_icon[trid],3,vx+32,vy+32)
+        else draw_sprite(global.robo_icon[trid],global.mrobo_team[tmrid],vx+32,vy+32)
+        draw_set_halign(fa_left)
+        draw_set_valign(fa_middle)
+        draw_set_font(global.font_m)
+        qtext=global.robo_name[trid]
+        draw_set_colour(0)
+        draw_text(vx+80+2,vy+vh/2+2,string_hash_to_newline(qtext))
+        draw_set_colour(16777215)
+        draw_text(vx+80,vy+vh/2,string_hash_to_newline(qtext))
+    }
+    vy+=vh+8
+}
+if(cold==false&&mouse_check_button_released(mb_right))
+{
+    with(DND_player)cold=false
+    instance_destroy()
+}
+
+

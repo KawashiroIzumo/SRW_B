@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"mrobo_add_equip",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"mrobo_add_equip",
+  "parent":{
+    "name":"create创建",
+    "path":"folders/Scripts/create创建.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

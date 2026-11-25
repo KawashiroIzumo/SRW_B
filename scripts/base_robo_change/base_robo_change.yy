@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"base_robo_change",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"base_robo_change",
+  "parent":{
+    "name":"add添加",
+    "path":"folders/Scripts/add添加.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

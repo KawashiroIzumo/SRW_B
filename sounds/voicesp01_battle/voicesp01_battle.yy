@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"voicesp01_battle",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":6.059646,
+  "exportDir":"",
+  "name":"voicesp01_battle",
+  "parent":{
+    "name":"SE",
+    "path":"folders/Sounds/SE.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"voicesp01_battle",
+  "volume":1.0,
+}

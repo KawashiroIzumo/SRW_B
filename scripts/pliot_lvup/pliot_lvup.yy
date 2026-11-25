@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"pliot_lvup",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"pliot_lvup",
+  "parent":{
+    "name":"workoutj计算",
+    "path":"folders/Scripts/workoutj计算.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

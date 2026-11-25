@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sound34_hkdrum",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":1.467857,
+  "exportDir":"",
+  "name":"sound34_hkdrum",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sound34_hkdrum",
+  "volume":1.0,
+}

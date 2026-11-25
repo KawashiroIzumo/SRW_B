@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"sprite_check",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"sprite_check",
+  "parent":{
+    "name":"常用",
+    "path":"folders/Scripts/常用.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

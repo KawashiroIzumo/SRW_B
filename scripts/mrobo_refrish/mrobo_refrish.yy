@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"mrobo_refrish",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"mrobo_refrish",
+  "parent":{
+    "name":"object物品特殊",
+    "path":"folders/Scripts/object物品特殊.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

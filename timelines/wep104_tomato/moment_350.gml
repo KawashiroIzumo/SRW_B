@@ -1,0 +1,1 @@
+audio_play_sound(choose(sound14_shiled001,sound13_shiled003,sound15_shiled002),1,0)

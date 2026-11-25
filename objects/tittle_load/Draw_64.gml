@@ -1,0 +1,172 @@
+var vx,vy,vw,vh,mx,my,i,j,k,l;
+mx=device_mouse_x_to_gui(0)
+my=device_mouse_y_to_gui(0)
+display_set_gui_size(1280,720)
+draw_set_alpha(0.5)
+draw_rectangle_colour(0,0,1280,720,0,0,192,0,0)
+draw_set_alpha(1)
+page=10
+//文件操作
+if(page==10)
+{
+    draw_set_font(global.font_m)
+    draw_set_halign(fa_center)
+    draw_set_valign(fa_middle)
+    vx=52
+    vy=64
+    vw=1176
+    vh=640
+    draw_kuang(vx,vy,vx+vw,vy+vh,c_blue)
+    vh=32
+    vx+=64
+    vw=192
+    //draw_line_width_colour(vx,vy,vx,vy+vh,5,16777215,16777215)
+    qtext=" "
+    draw_set_colour(0)
+    draw_text(vx+vw/2+2,vy+vh/2+2,string_hash_to_newline(qtext))
+    draw_set_colour(16777215)
+    draw_text(vx+vw/2,vy+vh/2,string_hash_to_newline(qtext))
+    vx+=vw
+    vw=192
+    draw_line_width_colour(vx,vy,vx,vy+vh,5,16777215,16777215)
+    qtext="主人公名称"
+    draw_set_colour(0)
+    draw_text(vx+vw/2+2,vy+vh/2+2,string_hash_to_newline(qtext))
+    draw_set_colour(16777215)
+    draw_text(vx+vw/2,vy+vh/2,string_hash_to_newline(qtext))
+    vx+=vw
+    vw=192
+    draw_line_width_colour(vx,vy,vx,vy+vh,5,16777215,16777215)
+    qtext="主线进度"
+    draw_set_colour(0)
+    draw_text(vx+vw/2+2,vy+vh/2+2,string_hash_to_newline(qtext))
+    draw_set_colour(16777215)
+    draw_text(vx+vw/2,vy+vh/2,string_hash_to_newline(qtext))
+    vx+=vw
+    vw=192
+    draw_line_width_colour(vx,vy,vx,vy+vh,5,16777215,16777215)
+    qtext="持有金钱"
+    draw_set_colour(0)
+    draw_text(vx+vw/2+2,vy+vh/2+2,string_hash_to_newline(qtext))
+    draw_set_colour(16777215)
+    draw_text(vx+vw/2,vy+vh/2,string_hash_to_newline(qtext))
+    vx=52
+    vy=64+32
+    vw=1176
+    draw_line_width_colour(vx,vy,vx+vw,vy,5,16777215,16777215)
+    vh=192
+    vx=52
+    vw=1176
+    draw_set_font(global.font_s)
+    draw_set_halign(fa_center)
+    draw_set_valign(fa_middle)
+    for(i=0;i<3;i++)
+    {
+        j=i+sub_page*3
+        if(save_enabled[j])
+        {
+            ax=vx+64
+            ay=vy
+            aw=192
+            ah=192
+            draw_sprite(global.pliot_head[save_hero[j]],0,ax,ay)
+            ax+=aw
+            aw=192
+            draw_line_width_colour(ax,ay,ax,ay+ah,5,16777215,16777215)
+            qtext=global.pliot_name[save_hero[j]]
+            draw_set_colour(0)
+            draw_text(ax+aw/2+2,ay+ah/2+2,string_hash_to_newline(qtext))
+            draw_set_colour(16777215)
+            draw_text(ax+aw/2,ay+ah/2,string_hash_to_newline(qtext))
+            ax+=aw
+            aw=192
+            draw_line_width_colour(ax,ay,ax,ay+ah,5,16777215,16777215)
+            qtext=save_stage[j]
+            draw_set_colour(0)
+            draw_text(ax+aw/2+2,ay+ah/2+2,string_hash_to_newline(qtext))
+            draw_set_colour(16777215)
+            draw_text(ax+aw/2,ay+ah/2,string_hash_to_newline(qtext))
+            ax+=aw
+            aw=192
+            draw_line_width_colour(ax,ay,ax,ay+ah,5,16777215,16777215)
+            qtext=save_money[i]
+            draw_set_colour(0)
+            draw_text(ax+aw/2+2,ay+ah/2+2,string_hash_to_newline(qtext))
+            draw_set_colour(16777215)
+            draw_text(ax+aw/2,ay+ah/2,string_hash_to_newline(qtext))
+        }
+        else
+        {
+            draw_text(vx+vw/2,vy+vh/2,string_hash_to_newline("存档空位"))
+        }
+        if(mx>=vx&&mx<=vx+vw&&my>=vy&&my<=vy+vh&&cold=false&&colora!=c_gray)
+        {
+            colora=make_color_rgb(255,255,255)
+            if(mouse_check_button(mb_left))
+                colora=0
+            if(mouse_check_button_released(mb_left))
+            {  
+                if(page==10)
+                {
+                    if(save_enabled[j])
+                    {
+                        audio_play_sound(SE02_onepoint24,1,0)
+                        add_load("media\\hentaiCG_0"+string(j))
+                        room_goto(ZB_room)
+                    }
+                    else
+                    {
+                        audio_play_sound(SE03_onepoint33,1,0)
+                    }
+                }
+            }
+            draw_set_alpha(0.3)
+            draw_set_colour(colora)
+            draw_rectangle(vx,vy,vx+vw,vy+vh,0)
+            draw_set_alpha(1)
+        }
+        draw_line_width_colour(vx,vy+vh,vx+vw,vy+vh,5,16777215,16777215)
+        vy+=vh
+    }
+    
+    vx=52
+    vy=672+16
+    vw=32
+    vh=32
+    for(i=0;i<3;i++)
+    {
+        ah=vh
+        if(sub_page==i)
+            ah=48
+        colora=make_colour_rgb(64,0,255)
+        if(mx>=vx&&mx<=vx+vw&&my>=vy&&my<=vy+ah&&cold=false&&colora!=c_gray)
+        {
+            colora=make_color_rgb(255,255,128)
+            if(mouse_check_button_released(mb_left))
+            {  
+                audio_play_sound(ME00_choose,1,0)
+                sub_page=i
+            }
+        }
+        draw_kuang(vx,vy,vx+vw,vy+vh,colora)
+        draw_set_blend_mode(bm_normal)
+        draw_set_font(global.font_m)
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_middle)
+        draw_set_colour(0)
+        qtext=string(i+1)
+        draw_text(vx+vw/2+2,vy+vh/2+2,string_hash_to_newline(qtext))
+        draw_set_colour(16777215)
+        draw_text(vx+vw/2,vy+vh/2,string_hash_to_newline(qtext))
+        vx+=vw+4
+    }
+}
+if(page>=0)
+{
+    if(!cold&&mouse_check_button_released(mb_right))
+    {
+        with(tittle_con)cold=false
+        instance_destroy()
+    }
+}
+

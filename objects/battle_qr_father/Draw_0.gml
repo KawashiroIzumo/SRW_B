@@ -1,0 +1,128 @@
+/// @description 绘制关闭的战斗动画
+var mx,my,vx,vy,ax,ay,flag,i;
+mx=window_mouse_get_x()
+my=window_mouse_get_y()
+if(ondrawing2&&battle_dh==false)
+{
+    if(jd==0||jd==4)
+    {
+        i=0
+        if(jd==4)i=1
+        if(upside_down)i=!i
+        vx=global.mrobo_x[mrid[i]]*64+64
+        vy=global.mrobo_y[mrid[i]]*64+64
+        ax=global.mrobo_x[mrid[!i]]*64+64
+        ay=global.mrobo_y[mrid[!i]]*64+64
+        vx=ax-(ax-vx)*alarm[2]/30
+        vy=ay-(ay-vy)*alarm[2]/30
+        draw_set_alpha(1)
+        draw_set_colour(c_aqua)
+        draw_circle(vx+32,vy+32,32,true)
+        draw_circle(vx+32,vy+32,24,true)
+        view_do_center(0,vx,vy)
+    }
+    if(jd==1||jd=5)
+    {
+        i=0
+        if(jd==5)i=1
+        if(upside_down)i=!i
+        ax=global.mrobo_x[mrid[!i]]*64+64
+        ay=global.mrobo_y[mrid[!i]]*64+64
+        view_do_center(0,ax,ay)
+        draw_sprite(monster_death,alarm[2],ax+32,ay+32)
+    }
+    if(jd==2||jd==6)
+    {
+        i=0
+        if(jd==6)i=1
+        if(upside_down)i=!i
+        ax=global.mrobo_x[mrid[!i]]*64
+        ay=global.mrobo_y[mrid[!i]]*64
+        if(avl_special>=0)
+        {
+            vx=ax-64
+            vy=ay-32
+            vw=384
+            vh=32
+            draw_kuang(vx,vy,vx+vw,vy+vh,make_colour_rgb(0,128,128))
+            qtext="[\\xys:75]"+global.special_name[avl_special]
+            draw_text_dhk_colour(qtext,vx+8,vy+4,0)
+        }
+        qtext=" "
+        vx=ax-64
+        vy=ay
+        vw=384
+        vh=64
+
+        ah=global.mrobo_hp[mrid[!i]]+floor(vdmg*alarm[2]/60)
+        ahm=global.mrobo_hpm[mrid[!i]]
+        draw_kuang(vx,vy,vx+vw,vy+vh,make_colour_rgb(0,128,128))
+        if(alarm[2]>=60)qtext="[\\xys:150]-"+string(dmg)
+        else
+        {
+            qtext="HP:"
+            qtext+=string(ah)+" / "+string(ahm)
+            draw_rectangle_colour(vx,vy+48,vx+vw,vy+vh,c_dkgray,c_dkgray,c_black,c_black,false)
+            draw_rectangle_colour(vx,vy+48,vx+vw*ah/ahm,vy+vh,65280,65280,c_green,c_green,false)
+        }
+        draw_text_dhk_colour(qtext,vx+8,vy+4,0)
+    }
+    if(jd==3||jd==7)
+    {
+        i=0
+        if(jd==7)i=1
+        if(upside_down)i=!i
+        ax=global.mrobo_x[mrid[!i]]*64
+        ay=global.mrobo_y[mrid[!i]]*64
+        vx=ax-64
+        vy=ay
+        vw=384
+        vh=64
+        ah=global.mrobo_hp[mrid[!i]]
+        ahm=global.mrobo_hpm[mrid[!i]]
+        draw_kuang(vx,vy,vx+vw,vy+vh,make_colour_rgb(0,128,128))
+        if(miss)qtext="[\\xys:150]Miss"
+        else
+        {
+            qtext="HP:"
+            qtext+=string(ah)+" / "+string(ahm)
+            draw_rectangle_colour(vx,vy+48,vx+vw,vy+vh,c_dkgray,c_dkgray,c_black,c_black,false)
+            draw_rectangle_colour(vx,vy+48,vx+vw*ah/ahm,vy+vh,65280,65280,c_green,c_green,false)
+        }
+        draw_text_dhk_colour(qtext,vx+8,vy+4,0)
+    } 
+    if(jd==8)
+    {
+        with(attacking_drawer)instance_destroy()
+        with(DND_player)inchoose=false
+        if(mode==0)global.mrobo_E[mrid[0]]=true
+        instance_destroy()
+    }
+    if(jd==9)
+    {
+        if(deathmrid<0)jd=8
+        else
+        {
+            ax=global.mrobo_x[deathmrid]*64+64
+            ay=global.mrobo_y[deathmrid]*64+64
+            draw_set_alpha(1)
+            draw_set_colour(c_aqua)
+            ah=global.mrobo_hp[deathmrid]
+            ahm=global.mrobo_hpm[deathmrid]
+            vx=ax-128
+            vy=ay-64
+            vw=384
+            vh=64
+            draw_kuang(vx,vy,vx+vw,vy+vh,make_colour_rgb(0,128,128))
+            qtext="HP:"
+            qtext+=string(ah)+" / "+string(ahm)
+            draw_rectangle_colour(vx,vy+48,vx+vw,vy+vh,c_dkgray,c_dkgray,c_black,c_black,false)
+            draw_rectangle_colour(vx,vy+48,vx+vw*ah/ahm,vy+vh,65280,65280,c_green,c_green,false)
+            draw_text_dhk_colour(qtext,vx+8,vy+4,0)
+            if(alarm[2]==15)audio_play_sound(sound38_robot_doom,1,0)
+            if(alarm[2]<=15)draw_sprite(baozha,15-alarm[2],ax+32,ay+32)
+            view_do_center(0,ax,ay)
+        }
+    }
+}
+

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"point_in",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"point_in",
+  "parent":{
+    "name":"常用",
+    "path":"folders/Scripts/常用.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

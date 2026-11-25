@@ -1,0 +1,104 @@
+rid=global.mrobo_id[mrid]
+//首先计算障碍
+for(i=0;i<256;i++)
+{
+    if(global.mrobo_id[i]>=0&&global.mrobo_onship[i]==false)
+    {
+        ix=global.mrobo_x[i]
+        iy=global.mrobo_y[i]
+        if(global.mrobo_team[i]!=global.mrobo_team[mrid])
+        {
+            bfs_map_trap[ix,iy]=1
+        }
+        else //战舰搭载
+        {
+            if(global.robo_ship[global.mrobo_id[i]]==true&&global.robo_ship[global.mrobo_id[mrid]]==false)
+                bfs_map_trap[ix,iy]=100+i
+            else 
+                bfs_map_trap[ix,iy]=2
+        }
+    }
+}
+//bfs设置
+mov=mrobo_get_mov(mrid)
+bfs_map_can_move[global.mrobo_x[mrid],global.mrobo_y[mrid]]=true
+bfs_map_can_movyl[global.mrobo_x[mrid],global.mrobo_y[mrid]]=mov
+for(i=0;i<1024;i++)
+{
+    bfs_queue_x[i]=0
+    bfs_queue_y[i]=0
+    bfs_queue_mov[i]=0
+}
+bfs_queue_x[0]=global.mrobo_x[mrid]
+bfs_queue_y[0]=global.mrobo_y[mrid]
+bfs_queue_mov[0]=mov
+//开始bfs运算
+bfs_queue_bottom=0;
+for(bfs_queue_top=0;bfs_queue_top<=bfs_queue_bottom;bfs_queue_top++)
+{
+    bfs_move_go(mrid)
+}
+
+//清理掉队友与自身的格子
+for(iy=0;iy<global.map_h[mapid];iy++)
+{
+    for(ix=0;ix<global.map_h[mapid];ix++)
+    {
+        if(bfs_map_trap[ix,iy]>0&&bfs_map_trap[ix,iy]<=2)bfs_map_can_move[ix,iy]=false
+    }
+}
+//若是敌人的移动，则选定目标
+var dis;
+if(mode==1)
+{
+    for(k=0;k<256;k++)
+    {
+        if(global.mrobo_id[k]>=0&&global.mrobo_team[k]!=global.mrobo_team[mrid])
+        {
+            dis=workout_dot_distance(global.mrobo_x[k],global.mrobo_y[k],global.mrobo_x[mrid],global.mrobo_y[mrid])
+            if(dis<tlong)//距离优先
+            {
+                tlong=dis
+                tmrid=k
+                thp=global.mrobo_hp[k]
+            }
+            else if(dis==tlong&&global.mrobo_hp[k]<thp)//距离相同时比较HP
+            {
+                tlong=dis
+                tmrid=k
+                thp=global.mrobo_hp[k]
+            }
+        }
+    }
+    //已经选定目标
+    if(tmrid>=0)
+    {
+        tlong=65535
+        for(iy=0;iy<global.map_h[mapid];iy++)
+        {
+            for(ix=0;ix<global.map_h[mapid];ix++)
+            {
+                if(bfs_map_can_move[ix,iy])
+                {
+                    dis=workout_dot_distance(global.mrobo_x[tmrid],global.mrobo_y[tmrid],ix,iy)
+                    if(dis<tlong)//距离优先
+                    {
+                        mbx=ix
+                        mby=iy
+                        tlong=dis
+                        if(dis==1)break
+                    }
+                }
+            }
+        }
+    }
+    else//没有找到目标就不随便移动了
+    {
+        mbx=global.mrobo_x[mrid]
+        mby=global.mrobo_y[mrid]
+    }
+    alarm[2]=20
+}
+//可以开始绘制了
+drawing=true
+

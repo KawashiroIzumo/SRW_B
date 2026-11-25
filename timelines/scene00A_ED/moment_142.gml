@@ -1,0 +1,18 @@
+/// @description 精确移动
+var mbx=400,spd=-6;
+actmb=0;
+with(talk_scene)
+{
+    i=other.actmb
+    actor_x[i]+=spd
+}
+if(talk_scene.actor_x[actmb]>=mbx)timeline_position--
+else 
+{
+    actor_x[actmb]=mbx
+    with(talk_scene)
+    {
+        actor_sprite[i]=plo00_wavebro_stand
+    }
+}
+

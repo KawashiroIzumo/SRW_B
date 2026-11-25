@@ -1,0 +1,17 @@
+display_set_gui_size(1280,720)
+b_page=0
+cold=false
+lsx=0
+mouse_dx=-1
+mouse_dy=-1
+lsy=0
+moved=false
+mapid=0;
+inchoose=false
+onchoose=-1
+turn_type=0
+turn_e_now=-1
+instance_create(x,y,robo_drawer)
+instance_create_depth(x,y,-10,gui_dnd_choose_obj)
+flag_repair=false
+G_cold=false

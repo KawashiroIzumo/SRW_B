@@ -1,0 +1,31 @@
+/// @description 刘培茄对话内容
+qname="刘培茄"
+qtext=@"三位好，我是辽宁号的舰长，刘培茄，这里有水可以喝，我们在向地球报告之后，会向你们询问
+一些问题。，还请三位在此稍等片刻。
+"
+qhead=po09_warwolf
+create_dhk(qname,qtext,qhead)
+with(talk_scene)
+{
+    i=4
+    actor_sprite[i]=thca07_aya_stand
+    actor_combo_nj[i]=0
+    actor_combo[i]=noone
+    actor_mirror[i]=0
+    i=1
+    actor_sprite[i]=thca00_reimu_stand
+    actor_combo_nj[i]=0
+    actor_combo[i]=noone
+    actor_mirror[i]=0
+    i=2
+    actor_sprite[i]=plo00_wavebro_stand
+    actor_combo_nj[i]=0
+    actor_combo[i]=noone
+    actor_mirror[i]=0  
+    i=3
+    actor_sprite[i]=plo09_warwolf_talk
+    actor_combo_nj[i]=4
+    actor_combo[i]=plo09_warwolf_stand
+    actor_mirror[i]=1
+}
+

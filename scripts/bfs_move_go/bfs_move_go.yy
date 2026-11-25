@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bfs_move_go",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bfs_move_go",
+  "parent":{
+    "name":"广度优先搜索",
+    "path":"folders/Scripts/广度优先搜索.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

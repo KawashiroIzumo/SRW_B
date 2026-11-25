@@ -1,0 +1,20 @@
+draw_set_font(global.font_m)
+draw_set_color(c_white)
+if(!death)
+{
+    draw_set_alpha(1)
+    y-=16
+    if(y<=320)
+    {
+        y=320
+        death=true
+        alarm[0]=150
+    }
+}
+else
+{
+    draw_set_alpha(min(1,alarm[0]/50))
+}
+draw_text_dhk_colour(qtext,128,y,1024)
+draw_set_alpha(1)
+

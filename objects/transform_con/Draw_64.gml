@@ -1,0 +1,57 @@
+if(mrid<0)instance_destroy()
+rid=global.mrobo_id[mrid]
+var colorb,colora,vx,vy,vw,vh,qtext,colora,mx,my,trid;
+mx=device_mouse_x_to_gui(0)
+my=device_mouse_y_to_gui(0)
+display_set_gui_size(1280,720)
+vx=384
+vy=232
+vw=512
+vh=256
+draw_kuang(vx,vy,vx+vw,vy+vh,6)
+vy+=16
+vx+=16
+vw-=32
+vh=64
+for(i=0;i<10;i++)
+{
+    trid=global.robo_transform[rid,i]
+    if(trid<0)continue;
+    colora=make_colour_rgb(0,128,128)
+    if(cold)colora=c_gray
+    if(point_in(vx,vy,vx+vw,vy+vh,mx,my)&&colora!=c_gray)
+    {
+        colora=make_colour_rgb(0,192,192)
+        if(mouse_check_button(mb_left))
+        {
+            colora=make_colour_rgb(255,192,192)
+        }
+        if(mouse_check_button_released(mb_left))
+        {
+            audio_play_sound(sound146_transforming,1,0)
+            mrobo_change(mrid,trid)
+            if(global.robo_place_go[trid,0])global.mrobo_fly[mrid]=true
+            with(DND_player)cold=false
+            instance_destroy()
+        }
+    }
+    draw_kuang(vx,vy,vx+64,vy+vh,colora)
+    draw_kuang(vx+72,vy,vx+vw,vy+vh,colora)
+    draw_sprite(global.robo_icon[trid],global.mrobo_team[mrid],vx+32,vy+32)
+    draw_set_halign(fa_left)
+    draw_set_valign(fa_middle)
+    draw_set_font(global.font_m)
+    qtext=global.robo_name[trid]
+    draw_set_colour(0)
+    draw_text(vx+80+2,vy+vh/2+2,string_hash_to_newline(qtext))
+    draw_set_colour(16777215)
+    draw_text(vx+80,vy+vh/2,string_hash_to_newline(qtext))
+    vy+=vh+8
+}
+if(cold==false&&mouse_check_button_released(mb_right))
+{
+    with(DND_player)cold=false
+    instance_destroy()
+}
+
+

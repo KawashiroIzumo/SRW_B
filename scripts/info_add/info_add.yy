@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"info_add",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"info_add",
+  "parent":{
+    "name":"object物品特殊",
+    "path":"folders/Scripts/object物品特殊.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

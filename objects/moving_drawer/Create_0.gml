@@ -1,0 +1,31 @@
+global.onship=-1
+svx=0
+tmrid=-1
+m2cas=-1
+thp=16777215
+tmrid=-1
+tlong=65535
+mbx=0
+mby=0
+svy=0
+mov_alarm=0
+mapid=0
+mrid=0
+rid=0
+mov=1
+drawing=false
+alarm[1]=true
+for(iy=0;iy<100;iy++)
+{
+    for(ix=0;ix<100;ix++)
+    {
+        bfs_map_can_move[ix,iy]=false
+        bfs_map_can_movyl[ix,iy]=-1//移动力余量
+        bfs_map_trap[ix,iy]=0//0=无障碍，1=不可以逾越的障碍，2=队友障碍
+    }
+}
+mode=0
+//0：玩家控制的
+//1：敌方行动
+//2：战舰发进
+

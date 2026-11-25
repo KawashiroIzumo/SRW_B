@@ -1,0 +1,177 @@
+if(ondraw)
+{
+    if(targetb<0)instance_destroy()
+    else if(global.base_rid[targetb]<0)instance_destroy()
+    else
+    {
+        var vx,vy,vw,vh,mx,my,i,j,k,l;
+        var rid=global.base_rid[targetb]
+        mx=window_mouse_get_x()
+        my=window_mouse_get_y()
+        draw_set_alpha(1)
+        draw_rectangle_colour(0,0,1280,720,0,0,192,0,0)
+        vx=52
+        vy=40
+        vw=640
+        vh=256
+        colora=make_colour_rgb(0,0,128)
+        draw_kuang(vx,vy,vx+vw,vy+vh,colora)
+		var lnum=0
+		if(sprite_exists(global.robo_spr_spine[rid]))
+		{
+			var a=sprite_index;
+			sprite_index=global.robo_spr_spine[rid]
+			lnum=skeleton_animation_get_frames("stand")
+			sprite_index=a
+			draw_skeleton(global.robo_spr_spine[rid],"stand","default",jt_image,vx+vw/2,vy+vh/2,0.4,0.4,0,16777215,1)
+		}
+		else
+		{
+			lnum=sprite_get_number(global.robo_spr_stand[rid])
+			draw_sprite_ext(global.robo_spr_stand[rid],jt_image,vx+vw/2,vy+vh/2,0.25,0.25,0,16777215,1)
+		}
+        draw_text_dhk_colour(global.robo_name[rid],vx+8,vy+8,0)
+        jt_image=(jt_image+1) mod lnum
+        vw=504
+        vx=724
+        draw_kuang(vx,vy,vx+vw,vy+vh,colora)
+        vh=32
+        equip_choose=-1
+        for(j=0;j<4;j++)
+        {
+            qtext="[\\c:16777215][\\xys:80]"
+            if(global.base_equip[targetb,j]>=0)
+            {
+                eid=global.base_equip[targetb,j]
+                qtext+=global.equip_name[eid]
+                if(point_in(vx,vy,vx+vw,vy+vh,mx,my)&&cold==false)
+                {
+                    equip_choose=eid
+                    draw_rectangle_colour(vx,vy,vx+vw,vy+32,c_white,c_white,c_white,c_white,true)
+                    if(mouse_check_button(mb_left))
+                    {
+                        draw_rectangle_colour(vx,vy,vx+vw,vy+32,c_navy,c_aqua,c_navy,c_navy,0)
+                    }
+                    if(mouse_check_button_released(mb_left))
+                    {
+                        audio_play_sound(sound23_reload,1,0)
+                        global.equip_num[eid]++
+                        global.base_equip[targetb,j]=-1
+                    }
+                }
+            }
+            else qtext+="---------"
+            draw_text_dhk_colour(qtext,vx+4,vy+4,0)
+            vy+=32
+        }
+        
+        vx=52
+        vy=312
+        vw=1176
+        vh=368
+        colora=make_colour_rgb(0,0,255)
+        draw_kuang(vx,vy,vx+vw,vy+vh,colora)
+        vh=36
+        vw=128
+        for(i=0;i<button_num;i++)
+        {
+            colora=make_colour_rgb(0,128,128)
+            if(cold)colora=c_gray;
+            if(page==i)colora=c_olive
+            if(point_in(vx,vy,vx+vw,vy+vh,mx,my)&&colora!=c_gray&&i!=page)
+            {
+                colora=make_colour_rgb(0,192,192)
+                if(mouse_check_button(mb_left))
+                {
+                    colora=make_colour_rgb(255,192,192)
+                }
+                if(mouse_check_button_released(mb_left))
+                {
+                    audio_play_sound(sound35_piano1,1,0)
+                    page=i
+                }
+            }
+            qtext=button_text[i,0] 
+            if(page==i)
+            {
+                draw_kuang(vx,vy,vx+vw,vy+vh+8,colora);
+                draw_text_dhk_colour(qtext,vx+4,vy+12,0)
+            }
+            else
+            {
+                draw_kuang(vx,vy,vx+vw,vy+vh,colora);
+                draw_text_dhk_colour(qtext,vx+4,vy+4,0)
+            }
+            vx+=vw+16
+        }
+        vx=52
+        vw=1176
+        vy+=vh+16
+        draw_line_width_colour(vx,vy,vx+vw,vy,5,c_white,c_white)
+        vy+=4
+        vh=32
+        vw=294
+        nowi=0
+        for(i=0;i<global.equip_sum;i++)
+        {
+            qtext="[\\c:16777215][\\xys:80]"
+            if(global.equip_num[i]>0&&global.equip_class[i]==page)
+            {
+                qtext+=global.equip_name[i]
+                qtext+=" x"+string(global.equip_num[i])
+                if(point_in(vx,vy,vx+vw,vy+vh,mx,my)&&cold==false)
+                {
+                    equip_choose=i
+                    draw_rectangle_colour(vx,vy,vx+vw,vy+32,c_white,c_white,c_white,c_white,true)
+                    if(mouse_check_button(mb_left))
+                    {
+                        draw_rectangle_colour(vx,vy,vx+vw,vy+32,c_navy,c_aqua,c_navy,c_navy,0)
+                    }
+                    if(mouse_check_button_released(mb_left))
+                    {
+                        var vflag=false
+                        for(j=0;j<4;j++)
+                        {
+                            if(global.base_equip[targetb,j]<0)
+                            {
+                                audio_play_sound(sound23_reload,1,0)
+                                global.equip_num[i]--
+                                global.base_equip[targetb,j]=i
+                                vflag=true
+                                break;
+                            }
+                        }
+                        if(!vflag)audio_play_sound(SE03_onepoint33,1,0)
+                    }
+                }
+                draw_text_dhk_colour(qtext,vx+4,vy+4,0)
+                vy+=32
+                if(vy+32>=680)
+                {
+                    vy=424
+                    vx+=vw
+                }
+            }            
+        }
+        
+        
+        //显示芯片详述
+        if(equip_choose>=0)
+        {
+            vx=mx+32
+            vy=my
+            vw=384
+            vh=256
+            if(vx+vw>=1280)vx-=vw+64
+            if(vy+vh>=720)vy-=vh
+            draw_kuang(vx,vy,vx+vw,vy+vh,c_blue);
+            qtext="[\\lxys:75]"+global.equip_text[equip_choose]
+            draw_text_dhk_colour(qtext,vx+4,vy+8,360)
+        }
+    }
+    if(!cold&&mouse_check_button_released(mb_right))
+    {
+        instance_destroy()
+    }
+}
+

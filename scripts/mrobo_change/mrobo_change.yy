@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"mrobo_change",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"mrobo_change",
+  "parent":{
+    "name":"create创建",
+    "path":"folders/Scripts/create创建.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

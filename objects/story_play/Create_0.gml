@@ -1,0 +1,32 @@
+esc_press_time=0
+for(i=0;i<100;i++)
+{
+    story_text[i]="…………"
+}
+story_maxln=0
+filedw="story\\Spf.txt"
+fin=file_text_open_read(filedw)
+for(i=0;i<100;i++)
+{
+    story_text[i]=file_text_read_string(fin)
+    file_text_readln(fin)
+    if(file_text_eof(fin))
+    {
+        //show_message(story_text[i])
+        break
+    }
+    else story_maxln++
+}
+file_text_close(fin)
+draw_set_font(global.font_m)
+draw_set_halign(fa_center)
+draw_set_valign(fa_middle)
+story_now=0
+alarm[0]=20
+global.bgm=BGMsrw11_maoudamashii_ethnic30
+if(!audio_is_playing(global.bgm))
+{
+    audio_stop_all()
+    audio_play_sound(global.bgm,1,1)
+}
+

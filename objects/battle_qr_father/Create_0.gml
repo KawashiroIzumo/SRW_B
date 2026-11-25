@@ -1,0 +1,65 @@
+mapid=DND_player.mapid
+choosedwid=-1
+mode=0
+eff=0
+flag_killother=-1
+page=0
+vdmg=0
+miss=false
+//0：玩家方向敌方攻击，可操作，可取消
+//1：敌方向玩家方攻击，可操作，不可取消
+//2：剧情战斗，不可操作
+global.initiactive=1//先攻标记
+for(i=0;i<2;i++)
+{   
+    wid[i]=-1
+    //-1:什么也不做
+    //-2:防御
+    //-3:回避
+    wid_mz[i]=100
+    mrid[i]=-1
+	wep_forcehit[i]=0//-1:闪避  1：命中
+	wep_forcedmg[i]=-1//>0：伤害变为给定数值
+}
+dmg=10
+stand=false
+avl_special=-1
+ondrawing=false
+flag_quxiao=false
+ondrawing2=false
+battle_dh=global.drawing
+jd=0
+deathmrid=-1
+for(i=0;i<128;i++)
+{
+    bks_reset(i)
+}
+for(i=0;i<384;i++)
+{
+	actors_object[i]=noone
+    actors_reset(i)
+}
+nowdmg=-1
+nowdmg_ala=-1
+playdh_mbdmg=0
+playdh_nowdmg=0
+battlecam_x=0
+battlecam_y=0
+battlecam_sf=1
+battlecam_sfto=1
+fw_flag=false
+battlecam_speed=0
+battlecam_direction=0
+actors_now=0
+guand[0]=false//完全抵抗，无需消耗必闪次数
+guand[1]=false//完全抵抗，无需消耗必闪次数
+actors_dhk_head=noone
+actors_dhk_face=0
+actors_dhk_text=" "
+alarm[1]=1
+actors_miss=false
+flag_UI=true
+flag_UI_alarm=0
+upside_down=false//先攻顺序反转
+
+

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"add_save_stage",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"add_save_stage",
+  "parent":{
+    "name":"add添加",
+    "path":"folders/Scripts/add添加.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

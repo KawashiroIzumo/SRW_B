@@ -1,0 +1,177 @@
+init_room()
+//设置关卡名和胜利条件的文本（只有文本）
+global.task_win="敌全灭"
+global.task_lose="战舰遭到击破"
+global.task_name="第三章 万物颠倒的世界"
+//设置剧情变量
+global.ls_variable[1]=1
+global.ls_variable[3]=1
+global.ls_variable[7]=1
+//调整视角
+view_do_center_puz(0,15,15)
+#region 刷机体部分1
+/*
+//create_mrobo_kai()的参数依次为机体id，x坐标，y坐标，阵营，机师id，修改阶段
+//返回值是mrobo编号
+a=create_mrobo_kai(25,15,15,0,25,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125//修改机体的气力为125
+}
+
+
+a=create_mrobo_kai(2,15,12,0,3,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125
+}
+a=create_mrobo_kai(57,15,16,0,34,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=150
+    mrobo_get_wep(a,92)//为机体附加武装
+    mrobo_get_wep(a,44)
+    mrobo_get_wep(a,95)
+	mrobo_get_wep(a,96)
+}
+a=create_mrobo_kai(55,15,17,0,8,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=150
+}
+a=create_mrobo_kai(58,14,17,0,41,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=150
+}
+
+ax=15
+ay=13
+a=create_mrobo_kai(34,ax,ay,0,11,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125
+	mrobo_get_wep(a,97)
+}
+ax=20
+ay=16
+for(i=3;i<=8;i++)
+{
+	a=create_mrobo_kai(i,ax,ay,0,1,5)
+	if(a>=0)
+	{
+	    global.mrobo_pliot_ql[a]=125
+	}
+	a=create_mrobo_kai(i,ax,ay+2,1,1,0)
+	if(a>=0)
+	{
+	    global.mrobo_pliot_ql[a]=15
+	}
+}
+
+ax=12
+ay=14
+a=create_mrobo_kai(0,ax,ay-6,0,0,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125
+}
+a=create_mrobo_kai(61,ax+1,ay-6,1,25,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125//修改机体的气力为125
+    global.mrobo_ac[a]=225//修改机体的气力为125
+}
+a=create_mrobo_kai(56,ax+2,ay-6,0,40,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125
+	//mrobo_get_wep(a,117)
+}
+ax+=2
+a=create_mrobo_kai(46,ax,ay,0,31,0)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=150
+}
+ax+=2
+a=create_mrobo_kai(35,ax,ay,0,15,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=150
+}
+ax+=2
+a=create_mrobo_kai(1,ax,ay,0,2,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=150
+}
+a=create_mrobo_kai(18,ax+1,ay,0,2,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=150
+}
+a=create_mrobo_kai(17,ax+2,ay,0,2,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=150
+}
+ax+=3
+a=create_mrobo_kai(20,ax,ay,0,5,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=150
+}
+ax+=2
+a=create_mrobo_kai(45,ax,ay,0,30,2)
+if(a>=0)
+{
+	mrobo_get_wep(a,92)
+    mrobo_get_wep(a,93)
+	mrobo_get_wep(a,94)
+    global.mrobo_pliot_ql[a]=150
+	add_pliot_lvup(30,40)
+}
+ax+=2
+a=create_mrobo_kai(9,ax,ay,0,7,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125
+	global.mrobo_en[a]=50
+	mrobo_get_wep(a,84)
+}
+
+a=create_mrobo_kai(51,15,10,1,36,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125
+	global.mrobo_ac[a]=900
+	add_buff(a,2)
+}
+a=create_mrobo_kai(52,14,10,1,37,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125
+	add_buff(a,2)
+}
+a=create_mrobo_kai(44,16,10,1,1,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125
+	//add_buff(a,5)
+}
+a=create_mrobo_kai(47,16,11,1,33,2)
+if(a>=0)
+{
+    global.mrobo_pliot_ql[a]=125
+	//add_buff(a,5)
+}
+instance_create(0,0,stage03_1_check)
+*/
+#endregion
+#region 刷机体部分2
+create_jq(SB03_0)
+#endregion
+//设置音乐
+global.bgm=BGMsrw15_maoudamashii_ethnic20
+global.roombgm=BGMsrw14_path_to_light_byfreePD

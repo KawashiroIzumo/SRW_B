@@ -1,0 +1,1 @@
+room_goto(stage04_op1)

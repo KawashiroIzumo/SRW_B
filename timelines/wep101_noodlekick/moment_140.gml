@@ -1,0 +1,1 @@
+audio_play_sound(SE20_light03,1,0)

@@ -1,0 +1,1 @@
+audio_play_sound(SE27_explosion07,1,0)

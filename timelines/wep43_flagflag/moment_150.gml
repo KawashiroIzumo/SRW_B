@@ -1,0 +1,1 @@
+audio_play_sound(SE18_electricity,1,0)

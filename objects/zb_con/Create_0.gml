@@ -1,0 +1,57 @@
+killer_queen=0
+global.turn_num=1//回合数
+maxk=-1
+for(i=0;i<100;i++)
+{
+    if(global.base_enabled[i])
+    {
+        pid=global.base_pliot[i]
+        if(global.pliot_kill[pid]>maxk)
+        {
+            killer_queen=pid
+            maxk=global.pliot_kill[pid]
+        }
+    }
+}
+cold=true
+alarm[0]=1
+button_text[0,0]="机体能力"
+button_text[1,0]="机体改造"
+button_text[2,0]="机师能力"
+button_text[3,0]="机师养成"
+button_text[4,0]="检索"
+button_text[5,0]="强化芯片"
+button_text[6,0]="换装部件"
+button_text[7,0]="换装武器"
+button_text[8,0]="换乘"
+button_text[9,0]="保存"
+button_text[10,0]="读取"
+button_text[11,0]="幕间物语"
+button_text[12,0]="进入下一关"
+button_text[13,0]="返回标题画面"
+button_num=14
+for(i=0;i<button_num;i++)
+{   
+    button_ala[i]=0
+}
+for(i=0;i<100;i++)
+{
+    slot_queue[i]=-1
+}
+for(i=0;i<9;i++)
+{
+    save_hero[i]=-1
+    save_stage[i]=-1
+    save_money[i]=0
+    save_enabled[i]=false
+}
+slot_num=0;
+page=-1
+sub_page=0
+global.bgm=BGMsrwZB_town22
+if(!audio_is_playing(global.bgm))
+{
+    audio_stop_all()
+    audio_play_sound(global.bgm,1,1)
+}
+

@@ -1,0 +1,22 @@
+svx=0
+svy=0
+mapmode=0
+map_dre=0
+mov_alarm=0
+mapid=0
+mrid=0
+stand=false
+rid=0
+wid=0
+mov=1
+drawing=false
+alarm[1]=true
+for(iy=0;iy<100;iy++)
+{
+    for(ix=0;ix<100;ix++)
+    {
+        bfs_map_can_atk[ix,iy]=false
+        bfs_map_trap[ix,iy]=0//0=无障碍，1=不可以逾越的障碍，2=队友障碍
+    }
+}
+

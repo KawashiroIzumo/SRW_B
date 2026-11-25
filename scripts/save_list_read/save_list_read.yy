@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"save_list_read",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"save_list_read",
+  "parent":{
+    "name":"object物品特殊",
+    "path":"folders/Scripts/object物品特殊.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

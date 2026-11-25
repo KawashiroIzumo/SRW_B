@@ -1,0 +1,212 @@
+var colorb,colora,vx,vy,vw,vh,qtext,colora,mx,my,sid_can_use;
+if(mode==1)page=2
+mx=device_mouse_x_to_gui(0)
+my=device_mouse_y_to_gui(0)
+display_set_gui_size(1280,720)
+if(ondraw)
+{
+    //机体名称
+    draw_set_colour(0)
+    draw_set_alpha(1)
+    draw_rectangle(0,0,1280,720,false)
+    if(rteam==1)colorb=c_red
+    else colorb=c_blue
+    vx=32
+    vy=32
+    vw=384
+    vh=48
+    draw_kuang(vx,vy,vx+vw,vy+vh,colorb);
+    qtext=global.robo_name[rid]
+    draw_text_dhk_colour(qtext,vx+4,vy+4,0)
+    
+    //退出
+    vx=448
+    vy=32
+    vw=256
+    vh=48
+    if(mouse_check_button_released(mb_right))
+    {
+        instance_destroy();
+    }
+    //主体
+        if(p_page==-1)lspid=pid
+        else
+            lspid=global.mrobo_sub_pliot[mrid,p_page]
+        vx=32
+        vy=96
+        vw=224
+        vh=224
+        draw_kuang(vx,vy,vx+vw,vy+vh,colorb);
+        qspr=global.pliot_head[lspid]
+        if(p_page==-1)qspr=global.mrobo_pliot_c_head[mrid]
+        draw_sprite(qspr,0,vx+16,vy+16)
+        
+        vy+=vh
+        vh=32
+        colora=make_colour_rgb(0,128,128)
+        var subflag=false;
+        for(i=0;i<10;i++)
+        {
+            if(global.mrobo_sub_pliot[mrid,i]!=-1)
+            {
+                subflag=true
+                break
+            }
+        }
+        if(!subflag)colora=c_gray
+        if(point_in(vx,vy,vx+vw,vy+vh,mx,my)&&cold==false&&colora!=c_gray)
+        {
+            colora=make_colour_rgb(0,192,192)
+            if(mouse_check_button(mb_left))
+            {
+                colora=make_colour_rgb(255,192,192)
+            }
+            if(mouse_check_button_released(mb_left))
+            {
+                var subflag=false;
+                for(i=p_page+1;i<10;i++)
+                {
+                    if(global.mrobo_sub_pliot[mrid,i]!=-1)
+                    {
+                        p_page=i
+                        subflag=true
+                        break
+                    }
+                }
+                if(!subflag)p_page=-1
+            }
+        }
+        draw_kuang(vx,vy,vx+vw,vy+vh,colora);
+        qtext="下一位机师"
+        draw_set_font(global.font_m)
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_middle)
+        draw_set_color(0)
+        draw_text(vx+vw/2,vy+vh/2+2,string_hash_to_newline(qtext))
+        draw_set_color(16777215)
+        draw_text(vx+vw/2,vy+vh/2,string_hash_to_newline(qtext))
+        if(p_page==-1)lspid=pid
+        else
+            lspid=global.mrobo_sub_pliot[mrid,p_page]
+        
+        vx=288
+        vy=96
+        vw=320
+        vh=48
+        draw_kuang(vx,vy,vx+vw,vy+vh,colorb);
+        qtext=global.pliot_name[lspid]
+        if(p_page==-1)qtext=global.mrobo_pliot_c_name[mrid]
+        draw_text_dhk_colour(qtext,vx+4,vy+4,0)
+        
+        vx=640
+        vy=96
+        vw=608
+        vh=48
+        draw_kuang(vx,vy,vx+vw,vy+vh,colorb);
+        qtext=global.pliot_class[lspid]
+        qtext+=" Lv"
+        qtext+=string(global.pliot_lv[lspid])
+        draw_text_dhk_colour(qtext,vx+4,vy+4,0)
+        
+        vx=288
+        vy=160
+        vw=320
+        vh=416
+        draw_kuang(vx,vy,vx+vw,vy+vh,colorb);
+        qtext="SP： "
+        ah=global.mrobo_pliot_sp[mrid]
+        if(p_page>=0)ah=global.mrobo_sub_sp[mrid,p_page]
+        qtext+=string(ah)+" / "+string(global.pliot_sp[lspid])
+        draw_text_dhk_colour(qtext,vx+4,vy+4,0)
+        vy+=40
+        vw=320
+        vh=32
+        schoose=-1
+        for(i=0;i<6;i++)
+        {
+            var sid=global.pliot_spirit[lspid,i];
+            if(global.pliot_kill[lspid]>=60&&global.pliot_spirit_ace[lspid,i]>=0)sid=global.pliot_spirit_ace[lspid,i]
+            if(sid<0)continue;
+            else
+            {
+                sid_can_use=true;
+                if(global.pliot_lv[lspid]<global.pliot_spirit_lv[lspid,i])
+                {
+                    sid_can_use=false;
+                    qtext="------------"
+                }
+                else
+                    qtext="【"+string(global.spirit_name[sid])+"】 "
+                
+                if(ah<global.spirit_sp[sid]||script_execute(global.spirit_ignore[sid],mrid)==false)
+                {   
+                    sid_can_use=false;
+                    qtext+="[\\c:255]"//不能使用的情况下以红色显示
+                }
+                if(global.pliot_lv[lspid]>=global.pliot_spirit_lv[lspid,i])qtext+=string(global.spirit_sp[sid])
+                if(mx>vx&&mx<vx+vw&&my>vy&&my<vy+vh)
+                {
+                    draw_rectangle_colour(vx,vy,vx+vw,vy+vh+4,c_white,c_white,c_ltgray,c_ltgray,true)
+                    if(global.pliot_lv[lspid]>=global.pliot_spirit_lv[lspid,i])schoose=i
+                    if(sid_can_use)
+                    {
+                        if(mouse_check_button(mb_left))
+                        {
+                            draw_set_alpha(0.5)
+                            draw_rectangle_colour(vx,vy,vx+vw,vy+vh+4,c_aqua,c_aqua,c_white,c_white,false)
+                            draw_set_alpha(1)
+                        }
+                        if(mouse_check_button_released(mb_left))
+                        {
+                            if(global.spirit_target[sid]<3)
+                            {
+                                eflag=global.spirit_target[sid]
+                                esid=sid
+                                instance_destroy()
+                            }
+                        }
+                    }
+                }
+                draw_text_dhk_colour(qtext,vx+4,vy+4,0)
+                vy+=vh+8
+            }
+        }
+        vx=640
+        vy=160
+        vw=608
+        vh=416
+        draw_kuang(vx,vy,vx+vw,vy+vh,colorb);
+        if(schoose>=0)
+        {
+            var sid=global.pliot_spirit[lspid,schoose];
+            if(global.pliot_kill[lspid]>=60&&global.pliot_spirit_ace[lspid,schoose]>=0)sid=global.pliot_spirit_ace[lspid,schoose]
+            if(sid<0)qtext="----------------"
+            else qtext=global.spirit_name[sid]+"#"+global.spirit_text[sid]
+        }
+        else qtext="----------------"
+        draw_text_dhk_colour(qtext,vx+4,vy+4,580)
+        
+        //返回按钮
+        vx=32
+        vy=608
+        vw=384
+        vh=80
+        colora=make_colour_rgb(0,128,128)
+        if(cold)colora=c_gray;
+        if(point_in(vx,vy,vx+vw,vy+vh,mx,my)&&cold==false)
+        {
+            colora=make_colour_rgb(0,192,192)
+            if(mouse_check_button(mb_left))
+            {
+                colora=make_colour_rgb(255,192,192)
+            }
+            if(mouse_check_button_released(mb_left))
+            {
+                instance_destroy()
+            }
+        }
+        draw_kuang(vx,vy,vx+vw,vy+vh,colora);
+        qtext="[\\xys:150]返回场景"
+        draw_text_dhk_colour(qtext,vx+4,vy+8,0)
+}
+

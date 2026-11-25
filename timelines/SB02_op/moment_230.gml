@@ -1,0 +1,32 @@
+/// @description 梁非凡登场
+with(talk_scene)
+{
+    i=0
+    actor_sprite[i]=plo31_liuxing_move
+    actor_combo[i]=noone
+	actor_speed[i]=8
+	actor_direction[i]=0
+	actor_mirror[i]=0
+    i=1
+    actor_sprite[i]=plo32_police_move
+    actor_combo[i]=noone
+	actor_speed[i]=6
+	actor_direction[i]=0
+	actor_mirror[i]=0
+    i=2
+    actor_sprite[i]=plo32_police_move
+    actor_combo[i]=noone
+	actor_speed[i]=6
+	actor_direction[i]=0
+	actor_mirror[i]=0
+	i=3
+    actor_reset(i)
+    actor_useing(i)
+    actor_sprite[i]=plo33_feifan_move
+	actor_mirror[i]=1
+	actor_speed[i]=8
+	actor_direction[i]=180
+    actor_x[i]=1344
+    actor_y[i]=384
+}
+

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"mrobo_get_mov",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"mrobo_get_mov",
+  "parent":{
+    "name":"workoutj计算",
+    "path":"folders/Scripts/workoutj计算.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

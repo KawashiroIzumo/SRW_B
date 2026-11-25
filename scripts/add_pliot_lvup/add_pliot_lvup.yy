@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"add_pliot_lvup",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"add_pliot_lvup",
+  "parent":{
+    "name":"add添加",
+    "path":"folders/Scripts/add添加.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

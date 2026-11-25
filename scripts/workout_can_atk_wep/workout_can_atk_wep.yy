@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"workout_can_atk_wep",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"workout_can_atk_wep",
+  "parent":{
+    "name":"workoutj计算",
+    "path":"folders/Scripts/workoutj计算.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

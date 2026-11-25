@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"map0001_bak_tileset",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"map0001_bak_tileset",
+  "out_columns":1,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"map",
+    "path":"folders/Tile Sets/map.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"map0001_bak",
+    "path":"sprites/map0001_bak/map0001_bak.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":2048,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":2048,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":1,
+}

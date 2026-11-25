@@ -1,0 +1,1 @@
+audio_play_sound(sound5_Earth6,1,0)

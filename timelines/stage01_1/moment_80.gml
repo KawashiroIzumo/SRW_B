@@ -1,0 +1,33 @@
+ d=base_find_pliot(0)
+if(d>=0)
+{
+    c=add_base_mrobo(1,2,0,0,0,0,0,0)
+    a=mrobo_find_robo(1)
+    if(a>=0)
+    {
+        b=create_mrobo_base(c,global.mrobo_x[a],global.mrobo_y[a],0)
+        mrobo_reset_single(a)
+    }
+    else
+    {
+        instance_create(0,0,stage01_GM_check)
+    }
+}
+else
+{
+    c=add_base_mrobo(22,0,0,0,0,0,0,0)
+    global.base_wep[c,3]=44
+    global.base_wep_extra[c,3]=true
+    a=mrobo_find_robo(22)
+    if(a>=0)
+    {
+        b=create_mrobo_base(c,global.mrobo_x[a],global.mrobo_y[a],0)
+        mrobo_reset_single(a)
+    }
+    else
+    {
+        instance_create(0,0,stage01_GM_check)
+    }
+}
+
+

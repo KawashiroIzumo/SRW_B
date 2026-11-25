@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sound38_touhou_doom",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":0.8924,
+  "exportDir":"",
+  "name":"sound38_touhou_doom",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sound38_touhou_doom",
+  "volume":1.0,
+}

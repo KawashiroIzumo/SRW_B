@@ -1,0 +1,34 @@
+var i,k;
+i=actors_now
+for(k=4;k<=6;k++)
+{
+    actors_sprite[k]=noone
+    actors_alpha[k]=1
+    actors_rotate[k]=0
+    actors_grow[k]=0
+    actors_xs[k]=1
+    actors_ys[k]=1
+    actors_rotate_speed[k]=0
+    actors_disappear[k]=0
+}
+actors_sprite[5]=zdb
+actors_speed[5]=20
+battlecam_speed=16
+if(i==0)
+{
+    //show_message("i==1")
+    actors_x[5]=battlecam_x-640-1440
+    actors_y[5]=battlecam_y-360
+    actors_xs[5]=1
+    actors_direction[5]=0
+    battlecam_direction=180
+}
+else
+{
+    actors_x[5]=battlecam_x+640+1440
+    actors_y[5]=battlecam_y-360
+    actors_xs[5]=-1
+    actors_direction[5]=180
+    battlecam_direction=0
+}
+

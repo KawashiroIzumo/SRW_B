@@ -1,0 +1,1 @@
+audio_play_sound(sound29_flycin,1,0)

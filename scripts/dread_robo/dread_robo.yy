@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"dread_robo",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"dread_robo",
+  "parent":{
+    "name":"常用",
+    "path":"folders/Scripts/常用.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

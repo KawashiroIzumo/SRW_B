@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sound9_cao",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":0,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":0,
+  "conversionMode":0,
+  "duration":0.083163,
+  "exportDir":"",
+  "name":"sound9_cao",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sound9_cao",
+  "volume":0.44,
+}

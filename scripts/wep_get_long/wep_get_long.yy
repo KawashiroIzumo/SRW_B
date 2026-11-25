@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"wep_get_long",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"wep_get_long",
+  "parent":{
+    "name":"workoutj计算",
+    "path":"folders/Scripts/workoutj计算.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,28 @@
+///移动
+with(talk_scene)
+{
+ 
+    i=0
+    actor_reset(i)
+    actor_enable[i]=true
+    actor_active[i]=true
+    actor_play[i]=true
+    actor_sprite[i]=robo11s00_stand
+    actor_mirror[i]=1
+    actor_x[i]=1000
+    actor_y[i]=400
+    actor_xs[i]=0.8
+    actor_ys[i]=0.8
+    actor_speed[i]=15
+    i=1
+    actor_reset(i)
+    actor_enable[i]=true
+    actor_active[i]=true
+    actor_play[i]=true
+    actor_sprite[i]=robo02s00_stand
+    actor_mirror[i]=1
+    actor_x[i]=200
+    actor_y[i]=400
+    actor_xs[i]=0.6
+    actor_ys[i]=0.6    
+}

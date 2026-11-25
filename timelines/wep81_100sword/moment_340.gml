@@ -1,0 +1,1 @@
+audio_play_sound(sound40_beamsaber,0,0)

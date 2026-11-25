@@ -1,0 +1,44 @@
+if(audio_exists(global.bgm))
+{
+    if(!audio_is_playing(global.bgm))
+    {
+        audio_stop_all()
+        audio_play_sound(global.bgm,1,1)
+    }
+}
+///godmode
+if(global.godmode)
+{
+    if(keyboard_check(vk_control))
+    {
+        if(keyboard_check_pressed(ord("1")))
+        {
+            for(i=0;i<256;i++)
+            {
+                if(global.mrobo_team[i]!=0)
+                    global.mrobo_id[i]=-1
+            }
+        }
+        if(keyboard_check_pressed(ord("2")))
+        {
+            for(i=0;i<256;i++)
+            {
+                if(global.mrobo_team[i]==0)
+                    mrobo_refrish(i)
+            }
+        }
+        if(keyboard_check_pressed(ord("3")))
+        {
+            global.money+=500000
+        }
+        if(keyboard_check_pressed(ord("4")))
+        {
+            global.turn_num=1
+        }
+        if(keyboard_check_pressed(ord("5")))
+        {
+            global.turn_num+=1
+        }
+    }
+}
+

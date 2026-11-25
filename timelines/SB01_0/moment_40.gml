@@ -1,0 +1,77 @@
+/// @description 添加机体 创建职业选手五人
+a=create_mrobo_kai(33,4,25,0,4,2)//阿姆罗
+if(a>=0)
+{
+    global.mrobo_ac[a]=105
+    global.mrobo_pliot_c_face[a]=po23S_amuroP
+    while(global.pliot_lv[4]<15)
+    {
+        pliot_lvup(4)
+    }
+    mrobo_get_wep(a,44)
+    mrobo_get_wep(a,57)
+    mrobo_get_wep(a,69)
+    mrobo_add_equip(a,0,1)
+    mrobo_add_equip(a,1,7)
+    mrobo_add_equip(a,2,9)
+    global.mrobo_pliot_sp[a]=global.pliot_sp[4]
+    mrobo_refrish(a)
+}
+a=create_mrobo_kai(33,4,26,0,9,2)//55号
+if(a>=0)
+{
+    global.mrobo_ac[a]=105
+    global.mrobo_pliot_c_name[a]="职业选手55号"
+    global.mrobo_ab[a]=999
+    global.mrobo_pliot_ql[a]=120//吃不起饭啦
+    while(global.pliot_lv[9]<10)
+    {
+        pliot_lvup(9)
+    }
+    mrobo_get_wep(a,54)
+    mrobo_get_wep(a,56)
+    mrobo_add_equip(a,0,10)
+    mrobo_add_equip(a,1,6)
+    global.mrobo_pliot_sp[a]=global.pliot_sp[9]
+    mrobo_refrish(a)
+}
+a=create_mrobo_kai(33,4,27,0,9,2)//梅萨
+if(a>=0)
+{
+    global.mrobo_ac[a]=105
+    global.mrobo_pliot_c_name[a]="职业选手梅萨"
+    global.mrobo_pliot_ql[a]=120//吃不起饭啦
+    mrobo_get_wep(a,54)
+    mrobo_get_wep(a,55)
+    mrobo_add_equip(a,0,1)
+    mrobo_add_equip(a,1,6)
+    global.mrobo_pliot_sp[a]=global.pliot_sp[9]
+    mrobo_refrish(a)
+}
+a=create_mrobo_kai(33,3,25,0,9,2)//zeta 你们吃不起饭和我有什么关系
+if(a>=0)
+{
+    global.mrobo_ac[a]=105
+    global.mrobo_pliot_c_name[a]="职业选手zeta"
+    mrobo_get_wep(a,54)
+    mrobo_get_wep(a,44)
+    mrobo_add_equip(a,0,2)
+    mrobo_add_equip(a,1,8)
+    global.mrobo_pliot_sp[a]=global.pliot_sp[9]
+    mrobo_refrish(a)
+}
+a=create_mrobo_kai(33,2,25,0,9,2)//封弊者
+if(a>=0)
+{
+    global.mrobo_ac[a]=105
+    global.mrobo_pliot_c_name[a]="职业选手封弊者"
+    global.mrobo_pliot_ql[a]=120//吃不起饭啦
+    mrobo_get_wep(a,44)
+    mrobo_get_wep(a,55)
+    mrobo_add_equip(a,0,1)
+    mrobo_add_equip(a,1,6)
+    global.mrobo_pliot_sp[a]=global.pliot_sp[9]
+    mrobo_refrish(a)
+}
+
+

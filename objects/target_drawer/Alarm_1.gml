@@ -1,0 +1,42 @@
+var ls_long;
+rid=global.mrobo_id[mrid]
+//首先计算障碍
+for(i=0;i<256;i++)
+{
+    if(script_execute(target_ignore,i)&&global.mrobo_team[i]==target_team)mrobo_is_target[i]=true
+    else mrobo_is_target[i]=false
+}
+if(target_draw_mode==1)//要绘制攻击范围的场合
+{
+	//首先计算障碍
+    for(i=0;i<256;i++)
+    {   
+        if(global.mrobo_id[i]>=0&&global.mrobo_onship[i]==false)
+        {
+            ix=global.mrobo_x[i]
+            iy=global.mrobo_y[i]
+            bfs_map_trap[ix,iy]=2
+        }
+    }
+    //开始bfs运算并清理掉队友与自身的格子
+    ls_long=target_long
+    for(iy=0;iy<global.map_h[mapid];iy++)
+    {
+        for(ix=0;ix<global.map_w[mapid];ix++)
+        {
+            dis=abs(ix-global.mrobo_x[source])+abs(iy-global.mrobo_y[source])
+            if(dis>ls_long)continue;
+            else
+            {
+                bfs_map_can_atk[ix,iy]=true
+                if(bfs_map_trap[ix,iy]==2)
+                {
+					bfs_map_can_atk[ix,iy]=false//地图炮敌我识别
+                }
+            }
+        }
+    }
+}
+//可以开始绘制了
+drawing=true
+

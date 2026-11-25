@@ -1,0 +1,29 @@
+svx=0
+svy=0
+mov_alarm=0
+mapid=0
+mrid=0
+rid=0
+wid=0
+mov=1
+source=-1
+target_team=-1
+target_draw_mode=0
+target_long=1
+target_exe=spiritbool_yesmen
+target_ignore=spiritbool_yesmen
+target_choose=-1
+drawing=false
+alarm[1]=true
+for(i=0;i<256;i++)
+{
+    mrobo_is_target[i]=false
+}
+for(iy=0;iy<100;iy++)
+{
+    for(ix=0;ix<100;ix++)
+    {
+        bfs_map_can_atk[ix,iy]=false
+        bfs_map_trap[ix,iy]=0//0=无障碍，1=不可以逾越的障碍，2=队友障碍
+    }
+}

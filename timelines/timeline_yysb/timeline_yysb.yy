@@ -1,0 +1,14 @@
+{
+  "$GMTimeline":"",
+  "%Name":"timeline_yysb",
+  "momentList":[
+    {"$GMMoment":"","%Name":"","evnt":{"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},"moment":0,"name":"","resourceType":"GMMoment","resourceVersion":"2.0",},
+  ],
+  "name":"timeline_yysb",
+  "parent":{
+    "name":"剧情",
+    "path":"folders/Timelines/剧情.yy",
+  },
+  "resourceType":"GMTimeline",
+  "resourceVersion":"2.0",
+}

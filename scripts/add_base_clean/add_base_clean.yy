@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"add_base_clean",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"add_base_clean",
+  "parent":{
+    "name":"add添加",
+    "path":"folders/Scripts/add添加.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

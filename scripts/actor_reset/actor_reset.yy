@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"actor_reset",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"actor_reset",
+  "parent":{
+    "name":"object物品特殊",
+    "path":"folders/Scripts/object物品特殊.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

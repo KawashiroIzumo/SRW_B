@@ -1,0 +1,24 @@
+//我方人员入场
+with(talk_scene)
+{
+    i=1
+    actor_reset(i)
+    actor_useing(i)
+    actor_sprite[i]=robo02s00_stand
+    actor_speed[i]=8
+    actor_mirror[i]=1
+    actor_x[i]=-700
+    actor_xs[i]=0.5
+    actor_ys[i]=0.5
+    actor_y[i]-=64
+    i=2
+    actor_reset(i)
+    actor_useing(i)
+    actor_sprite[i]=robo11s00_stand
+    actor_speed[i]=6
+    actor_xs[i]=0.5
+    actor_ys[i]=0.5
+    actor_x[i]=-600
+    actor_mirror[i]=1
+}
+

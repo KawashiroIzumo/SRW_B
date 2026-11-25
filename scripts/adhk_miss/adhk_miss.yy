@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"adhk_miss",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"adhk_miss",
+  "parent":{
+    "name":"常用",
+    "path":"folders/Scripts/常用.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,14 @@
+var i;
+i=actors_now
+actors_rotate_speed[!i]=0
+actors_rotate[!i]=0
+actors_x[!i]=battlecam_x+(1-!i*2)*(352+384)
+actors_y[!i]=battlecam_y+32+360
+actors_sprite[!i]=global.robo_spr_rdash[global.mrobo_id[mrid[!i]]]
+actors_image[!i]=9
+actors_image_speed[!i]=0
+actors_speed[!i]=16
+actors_direction[!i]=0
+if(i==1)actors_direction[!i]=180
+
+

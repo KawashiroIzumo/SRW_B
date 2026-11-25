@@ -1,0 +1,32 @@
+add_instance_deactive(true)
+cold=false
+rid=global.mrobo_id[mrid]
+rteam=global.mrobo_team[mrid]
+pid=global.mrobo_pliot[mrid]
+ondraw=true
+for(i=0;i<10;i++)
+{
+    wid=global.mrobo_wep[mrid,i]
+    if(wid>=0&&script_exists(global.wep_enable_ignore[wid]))
+    {
+        global.mrobo_wep_enabled[mrid,i]=script_execute(global.wep_enable_ignore[wid],mrid,wid)
+    }
+}
+if(mode==1)
+{
+    page=2
+    for(i=0;i<10;i++)
+    {
+        if(find_buff(mrid,9)>=0)wep_can_use[i]=workout_can_atk_wep(mrid,true,global.mrobo_wep[mrid,i])
+        else wep_can_use[i]=workout_can_atk_wep(mrid,stand,global.mrobo_wep[mrid,i])
+    }
+}
+if(mode==2&&tar_mrid>=0)
+{
+    page=2
+    for(i=0;i<10;i++)
+    {
+        wep_can_use[i]=workout_can_atk_wep_target(mrid,true,global.mrobo_wep[mrid,i],tar_mrid)
+    }
+}
+

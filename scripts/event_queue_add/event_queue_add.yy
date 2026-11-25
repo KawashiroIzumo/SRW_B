@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"event_queue_add",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"event_queue_add",
+  "parent":{
+    "name":"常用",
+    "path":"folders/Scripts/常用.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

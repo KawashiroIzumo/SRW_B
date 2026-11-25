@@ -1,0 +1,36 @@
+/// @description 主角对话内容
+if(global.ls_variable[0]==1)
+{
+    qname="波澜哥"
+    qtext=@"这……嗯……是的吧？
+    "
+    qhead=po00_bolan
+    a=create_dhk(qname,qtext,qhead)
+    with(talk_scene)
+    {
+        i=3
+        actor_sprite[i]=plo09_warwolf_stand
+        i=2
+        actor_sprite[i]=plo00_wavebro_talk
+        actor_combo_nj[i]=2
+        actor_combo[i]=plo00_wavebro_stand
+    }
+}
+else 
+{
+    qname="博丽灵梦"
+    qtext=@"哈哈哈哈哈哈哈嗝！当然是啦！波澜哥你真有创意！
+    "
+    qhead=po04_RIMsis
+    a=create_dhk(qname,qtext,qhead)
+    with(talk_scene)
+    {
+        i=3
+        actor_sprite[i]=plo09_warwolf_stand
+        i=1
+        actor_sprite[i]=thca00_reimu_talk
+        actor_combo_nj[i]=2
+        actor_combo[i]=thca00_reimu_stand
+    }
+}
+

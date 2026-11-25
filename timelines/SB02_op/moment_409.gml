@@ -1,0 +1,25 @@
+///@description 群体
+with(talk_scene)
+{
+	i=0
+    actor_sprite[i]=plo31_liuxing_move
+	actor_image_index[i]=0
+	actor_speed[i]=8
+	actor_mirror[i]=0
+	actor_direction[i]=0
+    actor_combo[i]=noone
+	i=1
+    actor_sprite[i]=plo32_police_move
+	actor_image_index[i]=0
+	actor_speed[i]=8
+	actor_mirror[i]=0
+	actor_direction[i]=0
+    actor_combo[i]=noone
+	i=2
+    actor_sprite[i]=plo32_police_move
+	actor_image_index[i]=0
+	actor_speed[i]=8
+	actor_mirror[i]=0
+	actor_direction[i]=0
+    actor_combo[i]=noone
+}

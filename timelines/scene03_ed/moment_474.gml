@@ -1,0 +1,38 @@
+/// @description 主角对话内容
+if(global.ls_variable[0]==1)
+{
+    qname="波澜哥"
+    qtext=@"真厉害，这就是局座的手段。
+#不过，舰长，您只召集了我们两个，是有什么事呢？
+    "
+    qhead=po00_bolan
+    a=create_dhk(qname,qtext,qhead)
+    with(talk_scene)
+    {
+        i=3
+        actor_sprite[i]=plo09_warwolf_stand
+        i=2
+        actor_sprite[i]=plo00_wavebro_talk
+        actor_combo_nj[i]=2
+        actor_combo[i]=plo00_wavebro_stand
+    }
+}
+else 
+{
+    qname="博丽灵梦"
+    qtext=@"我无所谓啦。我妈妈和铁十字有仇，而且那帮家伙也把我的【灵梦专用核心战机】打坏了。
+#所以我只要能暴打铁十字一顿就好。
+    "
+    qhead=po04_RIMsis
+    a=create_dhk(qname,qtext,qhead)
+    with(talk_scene)
+    {
+        i=3
+        actor_sprite[i]=plo09_warwolf_stand
+        i=1
+        actor_sprite[i]=thca00_reimu_talk
+        actor_combo_nj[i]=2
+        actor_combo[i]=thca00_reimu_stand
+    }
+}
+

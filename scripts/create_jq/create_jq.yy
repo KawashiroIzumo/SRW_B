@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"create_jq",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"create_jq",
+  "parent":{
+    "name":"create创建",
+    "path":"folders/Scripts/create创建.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

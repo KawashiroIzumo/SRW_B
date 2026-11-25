@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"SE16_mario_grow",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":5.360102,
+  "exportDir":"",
+  "name":"SE16_mario_grow",
+  "parent":{
+    "name":"SE",
+    "path":"folders/Sounds/SE.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"SE16_mario_grow",
+  "volume":1.0,
+}

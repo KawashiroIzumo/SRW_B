@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"voice03_makete",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":4.690333,
+  "exportDir":"",
+  "name":"voice03_makete",
+  "parent":{
+    "name":"VOICE",
+    "path":"folders/Sounds/VOICE.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"voice03_makete",
+  "volume":1.0,
+}

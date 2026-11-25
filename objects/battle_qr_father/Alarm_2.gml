@@ -1,0 +1,181 @@
+jd+=1
+if(jd==10)jd=8
+var i,flag;
+if(jd==1||jd==5)
+{
+    i=0
+    if(jd==5)i=1
+    if(upside_down)i=!i
+    flag=true
+    global.mrobo_en[mrid[i]]-=global.wep_en[wid[i]]
+    if(global.wep_bullet[wid[i]]>0)
+    {
+        for(j=0;j<10;j++)
+        {
+            if(global.mrobo_wep[mrid[i],j]==wid[i])
+            {
+                global.mrobo_wep_bullet[mrid[i],j]-=1
+                break
+            }
+        }
+    }
+    if(flag)
+    {
+        ls=irandom(100)
+		if(wep_forcehit[i]==1)ls=wid_mz[i]-255
+		else if(wep_forcehit[i]==-1)ls=wid_mz[i]+255
+        //show_message("ls="+string(ls)+"  wid_mz[i]="+string(wid_mz[i]))
+        if(true)
+        {
+            miss=false
+            guand[i]=false
+            avl_special=-1
+            dmg=workout_danmage(wid[i],mrid[i],mrid[!i])
+            if(ls<wid_mz[i])
+            {
+                a=find_buff(mrid[!i],14)
+                if(a>=0)
+                {
+                    //show_message("不屈！")
+                    dmg=10
+                    global.mrobo_buff[mrid[!i],a]=-1
+                }
+                
+            }
+            //show_message("dmg=" +string(dmg))
+            avl_special=workout_avl_special(mrid[i],wid[i],mrid[!i])
+            if(avl_special>=0)
+            {
+                //show_message(global.special_name[avl_special]+"发动")
+                if(global.special_break[avl_special])
+                {
+                    if(dmg<global.special_dr[avl_special])dmg=0
+                    else avl_special=-1
+                }
+                else dmg-=global.special_dr[avl_special]
+                if(dmg<0&&avl_special>=0)
+                {
+                    dmg=0
+                    if(global.special_en[avl_special]<=0)guand[i]=true
+                }
+            }
+            if(ls>=wid_mz[i]&&battle_dh==false&&guand[i]==false)
+            {
+                //回避气力
+                global.mrobo_pliot_ql[mrid[!i]]+=1
+                miss=true
+                if(jd==5)
+                {
+                    jd=7
+                }
+                else
+                {
+                    jd=3
+                }
+                alarm[2]=60
+                audio_play_sound(sound4_Jump2,1,false)
+            }
+            else
+            {
+                if(wid[!i]==-2)dmg=floor(dmg/2)
+                //show_message("dmg=" +string(dmg))
+				if(wep_forcedmg[i]>=0)dmg=wep_forcedmg[i]
+                if(battle_dh==false)
+                {
+                    audio_play_sound(sound2_Blow2,1,false)
+                    alarm[2]=15
+                }
+                else
+                {
+                    actors_now=i
+                    if(ls>=wid_mz[i]&&guand[i]==false)
+                    {
+                        actors_miss=true
+                        dmg=0
+                    }
+                    else 
+                    {
+                        actors_miss=false
+                    }
+                    timeline_index=global.wep_timeline[wid[i]]
+                    timeline_position=-1
+                    timeline_speed=1
+                    timeline_running=true
+                }
+            }
+			if(ls<wid_mz[i]&&guand[i]==false)
+			{
+				//命中特效
+				if(script_exists(global.wep_hit_effect[wid[i]]))
+				{
+					dmg=script_execute(global.wep_hit_effect[wid[i]],mrid[i],mrid[!i],wid[i],dmg)
+				}
+			}
+        }
+    }
+	global.initiactive=0//先攻标记
+}
+else if(jd==2||jd==6)
+{
+    i=0
+    if(jd==6)i=1
+    if(upside_down)i=!i
+    if(battle_dh==false||actors_miss=false)
+    {
+        if(avl_special>=0)global.mrobo_en[mrid[!i]]-=global.special_en[avl_special]
+        vdmg=dmg
+        if(vdmg>=global.mrobo_hp[mrid[!i]])vdmg=global.mrobo_hp[mrid[!i]]
+        global.mrobo_hp[mrid[!i]]-=dmg
+        //受伤气力
+        global.mrobo_pliot_ql[mrid[!i]]+=1
+        //敌方命中气力
+        global.mrobo_pliot_ql[mrid[i]]+=1
+        if(global.mrobo_hp[mrid[!i]]<=0)
+        {
+            global.mrobo_hp[mrid[!i]]=0
+            if(find_buff(mrid[i],4)>=0)global.mrobo_hp[mrid[!i]]=10
+            
+        }
+    }
+    if(battle_dh==false)alarm[2]=120
+    else alarm[2]=15
+    playdh_mbdmg=0
+    playdh_nowdmg=0
+}
+else if(jd==3||jd==7)
+{
+    i=0
+    if(jd==6)i=1
+    if(upside_down)i=!i
+    alarm[2]=60
+    for(i=0;i<=1;i++)
+    {
+        if(global.mrobo_hp[mrid[!i]]<=0)
+        {
+            jd=9
+            battle_dh=false
+            deathmrid=mrid[!i]
+            timeline_running=false
+        }
+    }
+}
+else if(jd=4)
+{
+    if(battle_dh==false)alarm[2]=30
+    i=1
+    if(upside_down)i=!i
+	actors_change_open_text(mrid[i],mrid[!i])
+    fw_flag=false
+    if(wid[i]<0)
+    {
+        jd=8
+        if(battle_dh==false)alarm[2]=6556
+    }
+    else if(global.mrobo_en[mrid[i]]<global.wep_en[wid[i]])
+    {
+        //show_message("global.mrobo_en[mrid[i]]="+string(global.mrobo_en[mrid[i]])+" global.wep_en[wid[i]]="+string(global.wep_en[wid[i]]))
+        jd=8
+        if(battle_dh==false)alarm[2]=6556
+    }
+}
+

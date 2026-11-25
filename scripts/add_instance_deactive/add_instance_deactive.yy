@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"add_instance_deactive",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"add_instance_deactive",
+  "parent":{
+    "name":"add添加",
+    "path":"folders/Scripts/add添加.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

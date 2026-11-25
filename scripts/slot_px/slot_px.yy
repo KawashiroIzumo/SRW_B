@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"slot_px",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"slot_px",
+  "parent":{
+    "name":"object物品特殊",
+    "path":"folders/Scripts/object物品特殊.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

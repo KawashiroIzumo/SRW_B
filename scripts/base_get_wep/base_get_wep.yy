@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"base_get_wep",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"base_get_wep",
+  "parent":{
+    "name":"add添加",
+    "path":"folders/Scripts/add添加.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"colour_to_dtype",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"colour_to_dtype",
+  "parent":{
+    "name":"常用",
+    "path":"folders/Scripts/常用.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

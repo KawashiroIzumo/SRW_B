@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"shd11_s2_heibai",
+  "name":"shd11_s2_heibai",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

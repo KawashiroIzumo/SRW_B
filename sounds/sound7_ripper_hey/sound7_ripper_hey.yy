@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sound7_ripper_hey",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":6,
+  "conversionMode":0,
+  "duration":0.736429,
+  "exportDir":"",
+  "name":"sound7_ripper_hey",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sound7_ripper_hey",
+  "volume":1.0,
+}
